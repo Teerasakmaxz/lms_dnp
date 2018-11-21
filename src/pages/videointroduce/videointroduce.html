@@ -1,0 +1,57 @@
+<ion-header>
+
+    <ion-navbar color="Custom_green">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-4>
+              <button ion-button menuToggle class="g">
+                <ion-icon class="iconmenu" name="ios-menu"></ion-icon>
+              </button>
+            </ion-col>
+            <ion-col col-4>
+              <ion-title class="menutitle ios-menutitle">วีดีโอแนะนำ</ion-title>
+            </ion-col>
+            <ion-col col-4>
+               
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col> 
+        <div *ngFor="let item of dataVideo">
+
+          <video *ngIf="dataVideo.vdo_type == 'file'; else path" id="my-video" webkit-playsinline="true" playsinline="true"  controls="controls" preload="metadata" width="100%">
+              <source src={{item.vdo_path}}
+           type="video/mp4"/>
+         </video>
+         <ng-template #path>
+            <video id="my-video" webkit-playsinline="true" playsinline="true"  controls="controls" preload="metadata" width="100%">
+               <source src={{item.link_path}}
+             type="video/mp4"/>
+           </video>
+        </ng-template>
+      </div>
+
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-4 *ngFor="let data of dataVideo">
+          <ion-card class = "cardsize">
+              <img class ="img-responsive" src="assets/imgs/noimage.png"/> 
+                <ion-card-title>
+                    <ion-label color="colorFont" class="coursesize1">{{data.vdo_title}}</ion-label>	
+                </ion-card-title>
+           </ion-card>      
+          </ion-col>
+    </ion-row>
+  </ion-grid>
+   
+
+
+</ion-content>

@@ -1,0 +1,58 @@
+<!--
+  Generated template for the ScorePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-toolbar color="Custom_green">
+            <button class="canceltest" left (click)="goback()">ยกเลิก</button>
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <ion-title class="menutitle ios-menutitle">ผลรวมคะแนน</ion-title>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+        <ion-card class="carduser">
+            <img *ngIf="score_past == 'n'" class="succuntest" src="assets/icon/false.svg"> 
+            <img *ngIf="score_past == 'y'" class="succuntest" src="assets/icon/true.svg">
+            <ion-label *ngIf="score_past == 'n'" class="untext">ไม่ผ่าน</ion-label>
+            <ion-label *ngIf="score_past == 'y'" class="succtext">ผ่าน</ion-label>
+          </ion-card>
+      
+          <!-- <ion-card>
+              <img src="assets/icon/true.svg">
+              <ion-label>ผ่าน</ion-label>
+            </ion-card> -->
+    </ion-row>
+    <ion-row>
+        <ion-card  class="carduser">
+            <ion-label class="pointall">คะแนนที่ได้</ion-label>
+            <div id="specificChart" class="donut-size">
+                    <div class="pie-wrapper">
+                      <span class="label">
+                          <span class="num">{{num}}/{{full_score}}</span><span class="smaller">คะแนน</span>
+                      </span>
+                      <div class="pie" #pie>
+                        <div class="left-side half-circle" #leftside></div>
+                        <div class="right-side half-circle" #rightside></div>
+                      </div>
+                      <div class="shadow" #shadow></div>
+                    </div>
+                  </div>              
+                  <hr>
+            <ion-label class="pointall">คิดเป็นร้อยละ</ion-label>
+            <progress-barline [progressline]="per"></progress-barline>
+          </ion-card>
+    </ion-row>
+  </ion-grid>
+   
+</ion-content>

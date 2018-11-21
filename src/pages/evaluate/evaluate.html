@@ -1,0 +1,109 @@
+<ion-header>
+  <ion-navbar color="Custom_green">
+      <ion-searchbar *ngIf="isSearchbarOpened" [showCancelButton]="true" (ionCancel)="changeStatus(false)"></ion-searchbar>
+      <ion-grid>
+          <ion-row>
+              <!-- <ion-col>
+                  <button ion-button menuToggle *ngIf="!isSearchbarOpened">
+                      <ion-icon class="iconmenu" name="ios-menu"></ion-icon>
+                  </button>
+              </ion-col> -->
+              <ion-col col-10>
+                          <ion-title *ngIf="!isSearchbarOpened" class="menutitle ios-menutitle">แบบความพึงพอใจ</ion-title>
+              </ion-col>
+              <ion-col>
+              </ion-col>
+          </ion-row>
+      </ion-grid>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+        <ion-grid>
+
+    <ion-row>
+
+   
+        <ion-slides #slides>
+                <ion-slide *ngFor="let item of survey; let u =index">
+                        <ion-grid>
+                                <ion-row>
+                                    <ion-card class="carduser">
+                                        <div class="contentuser">
+                                            <ion-grid>
+                                                <ion-row>
+                                                  <ion-item>
+                                                    <ion-label class="titleevahead">แบบประเมินผลการอบรมผ่านระบบ e-Learning</ion-label>
+                                                  </ion-item>  
+                                                </ion-row>
+                                                <ion-row>
+                                                    <ion-label class="titleeva htitleeva">{{u+1}}.{{item.question.question_name}} </ion-label>
+                                                </ion-row>
+
+
+                    <!-- /////////////////1////////////////////////// -->
+                    <div *ngIf="item.question.input_type_id == 1">
+
+                        </div>
+                        <!-- /////////////////2////////////////////////// -->
+                        <div *ngIf="item.question.input_type_id == 2">
+                            
+                          </div>
+                              <!-- /////////////////3////////////////////////// -->
+                          <div *ngIf="item.question.input_type_id == 3">
+                            
+                              </div>
+                              <!-- /////////////////4////////////////////////// -->
+                              <div *ngIf="item.question.input_type_id == 4">
+            <div *ngFor="let data_ques of item.data_ques_sub">
+                    <ion-row>
+                            <ion-label class="titleeva ptitleeva">{{data_ques.sub_ques.option_choice_name}}</ion-label>
+                        </ion-row>
+                        <ion-row>
+                                <ion-list radio-group>
+                                <ion-col *ngFor="let choice of data_ques.choice; let i = index">
+                                    
+                                        <ion-radio (ionSelect)="mcqAnswer(choice.type,choice.name_id,choice.val)"></ion-radio>
+                                        {{(choice.val)}}
+
+                                </ion-col>
+                            </ion-list>
+                        </ion-row>
+                </div>
+      
+                                  </div>
+                                    <!-- /////////////////5////////////////////////// -->
+                              <div *ngIf="item.question.input_type_id == 5"> 
+                    <ion-textarea id="item.choice[0].name_id"  [(ngModel)]="taxtAr" (ionChange)="mcqAnswer(item.choice[0].type,item.choice[0].name_id,'')"></ion-textarea>
+                              </div>
+
+                                            </ion-grid>
+                                        </div>
+                                    </ion-card>
+                                </ion-row>
+                              </ion-grid>
+                              
+                </ion-slide>
+        </ion-slides>
+    </ion-row>
+    </ion-grid>
+    <div class="buttoneva">
+    <ion-row>
+            <ion-col> 
+                <button type="submit" class="backbtntest" (click)="prev()">ย้อนไป</button>
+            </ion-col>
+            <ion-col>
+                <button type="submit" class="nextbtntest" (click)="next()">ถัดไป</button>  
+            </ion-col>
+        </ion-row>
+        <ion-row class="text-center">
+            <ion-col>
+            <button type="submit" class="submitbtntest" (click)="sendSurvey()">ยืนยันแบบพึงพอใจ</button>
+            </ion-col>
+        </ion-row>
+    </div>
+        <!-- <button type="submit" float-left ion-button color="primary" (click)="prev()">Prev</button>
+        <button type="submit" float-right ion-button color="primary" (click)="next()">Next</button> -->
+
+</ion-content>

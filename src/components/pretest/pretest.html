@@ -1,0 +1,41 @@
+<ion-card>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-row>
+                    แบบทดสอบก่อนเรียน
+                </ion-row>
+                <ion-row>
+                    บทเรียน : {{dataLesson?.title}}
+                </ion-row>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-row>
+                    ข้อสอบทั้งหมด
+                </ion-row>
+                <ion-row>
+                    เวลาในการทำข้อสอบ
+                </ion-row>
+                <ion-row>
+                    คะแนนทั้งหมด
+                </ion-row>
+            </ion-col>
+            <ion-col>
+                <ion-row>
+                    {{dataForPre?.total_score}} ข้อ
+                </ion-row>
+                <ion-row>
+                    {{dataLesson?.time_test}} นาที
+                </ion-row>
+                <ion-row>
+                    {{dataForPre?.total_score}} คะแนน
+                </ion-row>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <button ion-button (click)="actionTest()">เริ่มทำข้อสอบ</button>
+        </ion-row>
+    </ion-grid>
+</ion-card>

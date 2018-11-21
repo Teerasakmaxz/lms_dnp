@@ -1,0 +1,43 @@
+<ion-header>
+    <ion-navbar color="Custom_green">
+            <ion-searchbar *ngIf="isSearchbarOpened" [showCancelButton]="true" (ionCancel)="changeStatus(false)" (ionInput)="getItems($event)"></ion-searchbar>
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <button ion-button menuToggle *ngIf="!isSearchbarOpened">
+                        <ion-icon class="iconmenu" name="ios-menu"></ion-icon>
+                    </button>
+                </ion-col>
+                <ion-col>
+                    <ion-title *ngIf="!isSearchbarOpened" class="menutitle ios-menutitle">{{config.get_translation('course_menu_title')}}</ion-title>
+                </ion-col>
+                <ion-col>
+                        <button ion-button class="search" (click)="changeStatus(true)" *ngIf="!isSearchbarOpened">
+                           <ion-icon color="light" class="iconsearch" ios="ios-search" md="md-search"></ion-icon>
+                       </button>
+                   </ion-col>
+            </ion-row>
+
+        </ion-grid>
+
+
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="bg">
+    <div id="all_courses">
+        <ion-grid>
+            <ion-row>
+                <ion-col col-12 col-sm-6 col-md-6 col-lg-4 *ngFor="let lcourse of courses" (click)="clickForID(lcourse)">
+
+                    <ion-card class="cardcourses">
+                        <course-idblock [course]="lcourse"></course-idblock>
+
+                    </ion-card>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+
+
+</ion-content>

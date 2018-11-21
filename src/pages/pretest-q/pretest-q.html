@@ -1,0 +1,64 @@
+<!--
+  Generated template for the PretestQPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+    <ion-toolbar color="Custom_green">
+        <button class="canceltest" (click)="back()" left>ยกเลิก</button>
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <ion-title class="menutitle ios-menutitle"></ion-title>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-card>
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <ion-row>
+                        <span>{{topic}}</span>
+                        <hr>
+                    </ion-row>
+                    <ion-row>
+                        <span> {{type}} :</span><span class="text-success">&nbsp;{{title}}</span>
+                    </ion-row>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-row>
+                        <span> ข้อสอบทั้งหมด</span>
+                    </ion-row>
+                    <ion-row>
+                        <span> เวลาในการทำข้อสอบ</span>
+                    </ion-row>
+                    <ion-row>
+                        <span> คะแนนทั้งหมด</span>
+                    </ion-row>
+                </ion-col>
+                <ion-col>
+                    <ion-row>
+                        <span class="text-danger"> {{dataForPre?.total_score}}</span><span>&nbsp;ข้อ</span> 
+                    </ion-row>
+                    <ion-row>
+                        <span class="text-danger"> {{dataLesson?.time_test}}</span><span>&nbsp;นาที</span>    
+                    </ion-row>
+                    <ion-row>
+                        <span class="text-danger">{{dataForPre?.total_score}}</span><span>&nbsp;คะแนน</span> 
+                    </ion-row>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <button  ion-button (click)="actionTest()"><p class="btnstart"> เริ่มทำข้อสอบ</p></button>
+            </ion-row>
+        </ion-grid>
+    </ion-card>
+</ion-content>

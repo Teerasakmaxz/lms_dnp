@@ -1,0 +1,25 @@
+<div>
+  <ion-grid>
+        <video id="c" webkit-playsinline="true" playsinline="true"  controls="controls" preload="metadata" width="100%">
+            <source src={{video.learn[0].vdo}}
+         type="video/mp4"/>
+       </video>
+   
+    <ion-row class="customSlide" >
+        <ion-slides #mySlider *ngIf="sliderg != []"> 
+            <ion-slide *ngFor="let slide of sliderg">
+                <img class="img-responsive" [src]="slide.image" />
+            </ion-slide>
+         </ion-slides>
+    </ion-row>
+    <ion-row>
+      <ion-card class="customCard" *ngIf="sliderg != []">
+          <ion-slides slidesPerView="4" #mySliderOne> 
+              <ion-slide *ngFor="let slide of sliderg" (click) = setTimeVideo(slide)>
+                  <img class="img-responsive" [src]="slide.image" />
+              </ion-slide>
+           </ion-slides>
+      </ion-card>
+    </ion-row>
+  </ion-grid>
+</div>

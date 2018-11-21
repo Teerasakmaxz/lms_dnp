@@ -1,0 +1,86 @@
+<ion-header>
+    <ion-toolbar color="Custom_green">
+        <button class="canceltest" left (click)="goback()">ยกเลิก</button>
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <ion-title class="menutitle ios-menutitle">{{config.get_translation('pretest_menu_title')}}</ion-title>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-grid>
+        <ion-row class="timetest">
+
+            <div ><span> เวลาในการทำแบบทดสอบ </span> <span class="timetest2">: {{timeStr}}</span></div>
+            
+        </ion-row>
+            <ion-row>
+                <div class="row"  col-2 *ngFor="let item of temp; let i = index;" (click)="nextTemp(i)">
+                        <ion-col [ngClass]="setStatus(item.status,item.number,currentQuiz.number)" class="row">
+                                       <span class="numtest"> {{item.number}}</span>
+                                <ng-template  #elseTemplate>
+                                       <span class="numtest"> {{item.number}} </span>
+                                </ng-template>
+                        </ion-col>
+                </div>
+            </ion-row>      
+        <ion-row>
+        <ion-slides #mySlider>
+    <ion-slide *ngFor="let itemTemp of temp;">
+            <ion-card class="testcard">     
+        <div class="titletest1">{{question}}</div>
+        <!-- <hr> -->
+                <ion-list  *ngIf="choiceType == 1;">
+                        <ion-item *ngFor="let item of choice; let i =index">
+                            <ion-label text-wrap class="choicetest" [innerHTML] ="choiceRadio[i]"></ion-label>
+                            <ion-checkbox (click)="add(item.choice_id)"></ion-checkbox>
+                        </ion-item>
+                    </ion-list>
+            <ion-list [(ngModel)]="ansRadio" radio-group *ngIf="choiceType == 2 ;">
+                    <ion-item *ngFor="let item of choice; let i = index">
+                            <ion-label class="texttest" text-wrap [innerHTML] ="choiceRadio[i]"></ion-label>
+                            <ion-radio value={{item.choice_id}}></ion-radio>
+                        </ion-item>
+            </ion-list>
+
+            <div *ngIf="choiceType == 3;">
+                <ion-input [(ngModel)]="ansTextarea"></ion-input>
+            </div>
+            <div *ngIf="choiceType == 4;">
+                    <ion-item>
+                            <ion-label [innerHTML]="questionDropdown"></ion-label>
+                                <ion-select okText="ตกลง" cancelText="ปิด" [(ngModel)]="ansDropdown" multiple="true">
+                                    <div *ngFor="let item of choiceDropdownIndex;let i = index;">
+                                            <ion-option value={{item.choice_id}} [innerHTML] ="choiceDropdown[i]"></ion-option>
+                                    </div>
+                                       
+                                      </ion-select>
+                          </ion-item>
+                    </div>
+                    </ion-card>
+              </ion-slide>
+            </ion-slides>
+        </ion-row>
+            <ion-row>
+                    <ion-col>  
+                    <div *ngIf="expression">
+                  <button class="backbtntest" (click)="prev()">ย้อนกลับ</button>
+                  </div>
+                  </ion-col>
+                  
+                  <ion-col>
+                  <div class="buttonAll">
+                        <button *ngIf="lastQustion != 1; else showSendAns" class="nextbtntest"  (click)="goToNext()">ถัดไป</button>
+                  <ng-template #showSendAns>
+                        <button class="nextbtntest" (click)="sendAns('save')">ส่งคำตอบ</button>
+                  </ng-template>
+                  </div>
+                  </ion-col>
+                  </ion-row>
+                </ion-grid>
+</ion-content>

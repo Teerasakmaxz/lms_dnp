@@ -1,0 +1,37 @@
+<ion-grid>
+  <ion-row>
+      <ion-card class="carduser">
+          <div class="contentuser">
+              <ion-grid>
+                  <ion-row>
+                    <ion-item>
+                      <ion-label class="titleevahead">แบบประเมินผลการอบรมผ่านระบบ e-Learning</ion-label>
+                    </ion-item>  
+                  </ion-row>
+                  <ion-row>
+                      <ion-label class="titleeva htitleeva">1.{{survey.question.question_name}} </ion-label>
+                  </ion-row>
+                  <div *ngFor="let item of survey.data_ques_sub">
+                        <ion-row>
+                                <ion-label class="titleeva ptitleeva">{{item.sub_ques.option_choice_name}}</ion-label>
+                            </ion-row>
+                            <ion-row>
+                                <div *ngIf="item.input_type_id == 1"></div>
+
+                                <ion-list radio-group [(ngModel)]="radio" *ngIf="">
+                                        <ion-item *ngFor="let choice of survey.data_ques_sub.choice">
+                                                <ion-radio value={{choice.val}}></ion-radio>
+                                            </ion-item>
+                                   
+                                            <ion-item>
+                                                    <ion-radio value=1>1</ion-radio>
+                                                </ion-item>
+                                    
+                                </ion-list>
+                            </ion-row>
+                  </div>
+              </ion-grid>
+          </div>
+      </ion-card>
+  </ion-row>
+</ion-grid>

@@ -1,0 +1,28 @@
+page-pretest-q {
+    span{
+        font-size: 1.6em;
+        font-weight: 600 !important;
+        color: #434343 ;
+        line-height: 1.7;
+    }
+    .card{
+        padding: 12px;
+    }
+
+    .btnstart{
+        font-weight: 600 !important;
+        color: #fff !important;
+        font-size: 1em;
+        margin-top: 0 !important;
+    }
+    .button-ios,.button-md{
+        margin-top: 1em;
+        background-color: #62AB40;
+        padding: 15px;
+    }
+    .canceltest{
+        font-size: 1.4em;
+        background-color: transparent;
+        color: #fff;
+    }
+}

@@ -1,0 +1,14 @@
+  <ion-grid>
+    
+    <ion-row class="customSlide">
+          <button (click)="prev()" class="leftprev">  <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+          </button>
+          <ion-slides #mySlider> 
+              <ion-slide *ngFor="let slide of sliderg">
+                  <img class="img-responsive" [src]="slide.image" />
+              </ion-slide>
+           </ion-slides>
+            <button (click)="next()" class="rightnext"><ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon></button>
+        </ion-row>
+  </ion-grid>
+

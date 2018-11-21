@@ -1,0 +1,64 @@
+courseblock {
+	
+	position:relative;
+
+	.success {
+		color: green;
+	}
+
+	.wishlist{
+		position: absolute;
+	    left: 10px;
+	    top: 10px;
+	    font-size: 2rem;
+	    opacity: 0.5;
+	    z-index:99;
+		&:before{
+			content:"\f307";
+			font-family:"Ionicons";
+		}
+		&.active{
+			opacity:1;
+			&:before{
+				content:"\f308";
+				color:red;
+			}
+		}
+	}
+
+	.course_block{
+		margin-bottom: -1px;
+		.course_featured_image{
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center;
+			height: 125px;
+			
+		    overflow: hidden;
+    		margin: 1px;
+    		width: calc(100%+20px);
+		    img{
+				width: 100%;
+		    }
+		}
+		.card{
+			background:rgba(255,255,255,0.95);
+		}
+		
+		.card-content{
+			text-overflow: ellipsis;
+			min-width: 0;
+			overflow: hidden;
+			.card-title{
+			    font-size: 1.8rem;
+			    font-weight:600;
+			    margin: 0;
+				padding: 0;
+				text-overflow: ellipsis;
+				min-width: 0;
+				overflow: hidden;
+			}
+		
+		}
+	}
+}

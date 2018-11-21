@@ -1,0 +1,31 @@
+<!--
+  Generated template for the NewdetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar color="Custom_green">
+        <ion-grid>
+            <ion-row>
+                <ion-col col-9>
+                    <ion-title class="menutitle ios-menutitle">{{config.get_translation('newsreport_menu_title')}}</ion-title>
+                </ion-col>
+                <ion-col col-3>
+                        <button ion-button class="search">
+                                <ion-icon color="light" class="iconsearch" ios="ios-search" md="md-search"></ion-icon>
+                            </button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+  
+    <img class ="imgsize" [src]="cms_picture" />
+    <h1 class="text">{{cms_title}}</h1>
+    <hr>
+    <div class="coursesize1" [innerHTML]="cms_detail"></div>
+  
+</ion-content>

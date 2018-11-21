@@ -1,6 +1,4 @@
 // http://ionicframework.com/docs/theming/
-
-
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -14,3 +12,92 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+.contentmenu{
+    position: fixed !important;
+}
+
+.listmenubar{
+    width: 100%;   
+}
+.grid{
+    padding: 0 !important;
+}
+.logo {
+    position: relative;
+    // padding:3rem;
+   
+    width: 100;
+}
+
+.logo .user {
+    position: absolute;
+    top: 20px;
+    height: 100px;
+    width: 100px;
+    left: 40px;
+    margin: 0;
+    color: white;
+}
+
+.picline {
+    margin-top: -5px;
+    width: 100%;
+}
+
+.label-ios {
+    margin: 0px;
+}
+
+.colstyle {
+    max-width: 10% !important;
+}
+
+.label-md {
+    margin: 0;
+}
+
+.label-admin {
+    margin-top: 5px;
+    font-size: 25px;
+}
+
+.custom-alert {
+    >div {
+        background-color: rgb(206, 248, 212) !important;
+        background: rgb(206, 248, 212) !important;
+        color: rgb(0, 0, 0) !important;
+        $alert-md-background-color: #F35E5D;
+        $alert-ios-background: #F35E5D;
+    }
+}
+
+.buttonsize {
+    width: 100%;
+}
+
+.buttonsignout{
+    position: relative;
+    bottom: 0;
+    border-radius:0;
+    padding: 30px 0;
+    margin: 0;   
+}
+
+.imgsize {
+    width: 60%;
+    height: 60%;
+}
+
+.mid {
+    margin-left: 45px;
+}
+
+.coursesize1 {
+    font-size: 20px;
+    
+}
+
+
+.list-ios .item-block .item-inner,.list-md .item-block .item-inner{
+    border-bottom: 0.55px solid rgba(200, 199, 204, 0.43);
+}

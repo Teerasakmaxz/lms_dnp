@@ -1,0 +1,70 @@
+<ion-header>
+
+    <ion-navbar color="Custom_green">
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid class="containerGrid">
+
+        <ion-row>
+            <ion-col col-6 class="col-pic">
+                <div class="imgCourse">
+                    <img class="picaccom" src="{{image}}" >
+                </div>
+            </ion-col>
+
+            <ion-col col-6 class="bg">
+                <div class="imgReward">
+                    <img src="assets/images/grey-reward.png">
+                </div>
+                <div class="Bprint">
+                    <button ion-button color="purplee" class="buttonBprint" (click)="printCertificate(id,course_score)">พิมพ์ใบประกาศ</button>
+                </div>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+                <ion-col class="learntitle">
+                        {{name}}
+                    </ion-col>
+        </ion-row>
+        <ion-row>
+                    {{detailDate}}
+    </ion-row>
+        <ion-row>
+                    <ion-segment [(ngModel)]="appDetail" color="secondary">
+                        <ion-segment-button value="detail"  (click)="slidePrev()">
+                                รายละเอียด
+                        </ion-segment-button>
+                        <ion-segment-button value="course" (click)="goToSlide()">
+                                เนื้อหาของคอร์สนี้
+                        </ion-segment-button>
+                      </ion-segment>       
+            <ion-slides #mySlider>
+                <ion-slide padding>
+                    <div  [innerHTML] ="element"></div>
+                </ion-slide>
+                <ion-slide>
+                    <div *ngFor="let item of dataFor" >
+                    <div *ngIf="dataFor == 1; else elseTemplate">
+                            <p>ยังไม่มีบทเรียน</p> 
+                    </div>
+                    <ng-template #elseTemplate>
+                            <accordion [lesson]="item.lesson"></accordion>
+                    </ng-template>   
+                    </div>
+                    <div *ngIf="questionnaireId != null" text-center>
+                            <button full ion-button color="green1" class="text1-5" (click)="goToEval()">แบบประเมินความพึงพอใจ</button>
+                        </div>
+                        <div *ngIf="testPost > 0" text-center>
+                                <button full ion-button color="custom" *ngIf="course_score != ''" class="fontSize scoretest"><span class="scorebox">สอบหลักสูตร ได้คะแนน : {{course_score?.score_number}} / {{course_score?.score_total}}</span></button>
+
+                                <button *ngIf="course_score == ''" full ion-button color="green1" class="text1-5" (click)="testPostCourse(id,statusCourseTest)">สอบหลักสูตร</button>
+                            </div>
+
+                </ion-slide>
+            </ion-slides>
+        </ion-row>
+    </ion-grid>
+
+</ion-content>

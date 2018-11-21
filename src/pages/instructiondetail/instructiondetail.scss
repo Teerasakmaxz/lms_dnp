@@ -1,0 +1,103 @@
+page-instructiondetail {
+    
+        .scroll-content{
+            margin-top:35px !important;
+            background: #ffffff;
+        }
+        
+        
+        .img-responsive img{
+            text-align: center;
+            max-width: 100%;
+        
+        }
+    
+        #loading{
+            position:fixed;
+            top:0;left:0;z-index:9999;
+            width:100vw;height:100vh;
+            display:block;
+            background:#313b3d;
+            h2{
+                color:rgb(228, 15, 15);
+                transition:all 200ms ease-in;
+            }
+        }
+        ion-slides{
+            height:auto;
+            margin: 0 -12px;
+            width: calc(100% + 24px);
+            &#featured{
+                z-index:1;
+                position:relative;
+                .swiper-container{
+                    padding:10px;
+                }
+            }
+        }
+        .swiper-container{
+            height:auto;
+            padding-bottom:30px;
+        }
+    
+        #newscontent{
+            z-index:9;position:relative;
+             background: #ffffff;
+             margin-top: 0%;
+             height: 200px;
+             
+            
+        }
+        
+        .course_featured_image{
+            background-size: auto 50%;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 60px;
+            
+            overflow: hidden;
+            margin: 10px;
+            width: calc(100%+20px);
+            img{
+                width: 100%;
+                
+            }
+        }
+        .namecourse{
+            color: #51a26a;
+            margin-left: 0px;
+            height: 10px;
+        }
+        .button{
+            left: 125px;
+            margin-top:-11px !important;
+        }
+        .toolbar-ios ion-title{
+            padding: 0px;
+        }
+        .placecard{
+            margin-top: 20%;
+        }
+
+        .img-responsive img{
+            text-align: center;
+    
+            max-width: 100%;
+            // height: 500px;
+        
+        }
+        .cardsize{
+            
+            margin-top: 10%;
+            width: 95%;
+            height: 100%;
+        }
+        .coursesize1 {
+            font-size: 1.6rem;
+        }
+        .coursesize2 {
+            font-size: 2rem;
+        }
+    
+    
+}

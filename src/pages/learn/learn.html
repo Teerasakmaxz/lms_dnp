@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-navbar color="Custom_green">
+            <ion-grid>
+                    <ion-row>
+                        <ion-col col-10>
+                                <ion-title class="menutitle ios-menutitle">{{config.get_translation('learn_menu_title')}}</ion-title>
+                        </ion-col>
+                        <ion-col></ion-col>
+                    </ion-row>
+                </ion-grid>  
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+        <div *ngFor="let item of videos">
+
+        <videocomponent *ngIf="item.type == 'vdo'; else pdf" [video]="item"></videocomponent>
+        <ng-template #pdf>
+            <pdfcomponent [pdfdoc]="item"></pdfcomponent>
+        </ng-template>
+   
+    </div>
+
+</ion-content>

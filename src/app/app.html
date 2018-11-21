@@ -1,1 +1,63 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu id="mainmenu" side="left" [content]="nav" *ngIf=pages.length>
+    <ion-content class="contentmenu">
+			<ion-grid>
+				<ion-row>
+						<div class="logo">
+								<img src="assets/dnp_mobile_asset/top@2x.png" />
+					
+								
+								<div class="user">
+									<img style="
+									background-color: #70707070;
+									padding: 5px;" src="{{name?.pic_user}}" />
+									<ion-label class="label-admin">{{name?.firstname}}</ion-label>
+									<h4 style="color:#AEAEAE; margin-top:0;">@{{name?.username}}</h4>
+								</div>
+							</div>
+				</ion-row>
+				<ion-row>
+						<img src="assets/assets dnp mobile/line.png" class="picline">
+				</ion-row>
+				
+				<ion-row>
+						<ion-list list-ios list-android class="listmenubar">
+								<button ion-item item-ios item-android  *ngFor="let p of pages" (click)="onLoad(p)">
+									 <ion-grid>
+										<ion-row>
+											<ion-col class="colstyle">
+													<img src="{{p.icon}}"item-left/>
+											</ion-col>
+											<ion-col class="colstyle">
+												<div style="margin-top: 5px; color: #434343; font-size: 2rem;">
+													<strong [innerHtml]="p.title"></strong>
+												</div>
+											</ion-col>
+										</ion-row>
+									</ion-grid>
+								</button>
+							</ion-list>
+				</ion-row>
+				
+				<ion-row class="">
+						<button ion-button color="danger" class="buttonsize buttonsignout" (click)="logOut()">
+								<ion-grid>
+										<ion-row>
+												<ion-col col-2 class="mid">
+														 <div class="imgsize">
+																<img src ='assets/icon/sign-out.svg'/> 
+														</div>
+												</ion-col>       
+												<ion-col col-3>
+														<div class = "coursesize1">
+														ออกจากระบบ
+														</div>
+											   </ion-col>
+										</ion-row>
+									</ion-grid>
+								</button>
+				</ion-row>
+			</ion-grid>
+	</ion-content>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #nav swipe-back-enabled="false" main></ion-nav>

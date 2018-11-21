@@ -1,0 +1,131 @@
+<ion-header>
+    <ion-navbar color="Custom_green">
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <button ion-button menuToggle>
+              <ion-icon class="iconmenu" name="ios-menu"></ion-icon>
+                     </button>
+                </ion-col>
+                <ion-col>
+                    <ion-title class="menutitle ios-menutitle">{{config.get_translation('problemreport_menu_title')}}</ion-title>
+                </ion-col>
+                <ion-col>
+                        <button ion-button class="search">
+                                <ion-icon color="light" class="iconsearch" ios="ios-search" md="md-search"></ion-icon>
+                            </button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+        <ion-refresher (ionRefresh)="doRefresh($event)">
+                <ion-refresher-content
+                pullingIcon="arrow-dropdown"
+                pullingText="Pull to refresh"
+                refreshingSpinner="circles"
+                refreshingText="กำลังโหลดข้อมูล...">
+              </ion-refresher-content>
+              </ion-refresher>
+    <ion-grid>
+        <ion-row>
+                        
+                <ion-segment [(ngModel)]="app" color="secondary">
+                        <ion-segment-button value="postProblemre"  (click)="slidePrev()">
+                                แจ้งปัญหาการใช้งาน
+                        </ion-segment-button>
+                        <ion-segment-button value="tableProblemre" (click)="goToSlide()">
+                                ตารางปัญหาที่เเจ้ง
+                        </ion-segment-button>
+                      </ion-segment>   
+         
+        </ion-row>
+        <ion-slides #mySlider>
+               
+            <ion-slide>
+                <ion-row>
+                    <ion-card class="card_n">
+                        <ion-row>
+                            <ion-col col-6>
+                                <ion-item class="boxx">
+                                    <ion-input type="text" placeholder="ชื่อ" [(ngModel)]="fistname"></ion-input>
+                                </ion-item>
+                            </ion-col>
+                            <ion-col col-6>
+                                <ion-item class="boxx">
+                                    <ion-input type="text" placeholder="นามสกุล" [(ngModel)]="lastname"></ion-input>
+                                </ion-item>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-item class="boxc">
+                                <ion-label>
+                                    <img src="assets/dnp_mobile_asset/Group 323.png" class="tabicon">
+                                </ion-label>
+                                <ion-input type="tel" placeholder="เบอร์โทรศัพท์" [(ngModel)]="tel"></ion-input>
+                            </ion-item>
+                        </ion-row>
+                        <ion-row>
+                            <ion-item class="boxc">
+                                <ion-label>
+                                    <img src="assets/dnp_mobile_asset/messege.png">
+                                </ion-label>
+                                <ion-input type="text" placeholder="อีเมลล์" [(ngModel)]="email"></ion-input>
+                            </ion-item>
+                        </ion-row>
+                    </ion-card>
+                </ion-row>
+                <ion-row>
+                    <ion-card class="card_r">
+                        <ion-row>
+                            <ion-item class="boxc">
+                                <ion-label>ประเภทปัญหา</ion-label>
+                                <ion-select okText="ตกลง" cancelText="ปิด" [(ngModel)]="type">
+                                    <ion-option value="1">การเข้าสู่ระบบ</ion-option>
+                                    <ion-option value="2">การสมัครเรียนออนไลน์</ion-option>
+                                    <ion-option value="3">การพิมพ์ใบประกาศ</ion-option>
+                                    <ion-option value="4">การลืมรหัสผ่าน</ion-option>
+                                    <ion-option value="5">สมัครเรียน</ion-option>
+                                </ion-select>
+                            </ion-item>
+                        </ion-row>
+                        <ion-row>
+                            <ion-item class="boxc">
+                                <ion-input type="text" placeholder="หัวข้อ" [(ngModel)]="topic"></ion-input>
+                            </ion-item>
+                        </ion-row>
+                        <ion-row>
+                            <ion-item class="boxc">
+                                <ion-label>หลักสูตร</ion-label>
+                                <ion-select okText="ตกลง" cancelText="ปิด" [(ngModel)]="course">
+                                    <div *ngFor="let item of items">
+                                            <ion-option  value="{{item.course_id}}">{{item.course_title}}</ion-option>
+                                    </div>
+                                </ion-select>
+                            </ion-item>
+                        </ion-row>
+                        <ion-row>
+                            <ion-item class="boxc">
+                                <ion-textarea type="text" placeholder="ข้อความ" [(ngModel)]="message"></ion-textarea>
+                            </ion-item>
+                        </ion-row>
+                        <div class="Bmessage">
+                            <button ion-button color="danger" (click)="sendProblemre()">ส่งข้อความ</button>
+                        </div>
+                    </ion-card>
+                </ion-row>
+            </ion-slide>
+            <ion-slide>
+                   
+            <ion-row>
+                <ion-col *ngFor="let item of history" col-12>
+                    <tablereport [history]="item"></tablereport>
+                </ion-col>
+            </ion-row>
+            </ion-slide>
+        </ion-slides>
+
+    </ion-grid>
+
+</ion-content>

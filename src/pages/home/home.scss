@@ -1,3 +1,99 @@
 page-home {
+	.scroll-content{
+		margin-top:25px !important;
+		background: #ffffff;
+	}
+	.img-responsive img{
+		text-align: center;
+		max-width: 100%;
+	
+	}
+	#loading{
+		position:fixed;
+		top:0;left:0;z-index:9999;
+		width:100vw;height:100vh;
+		display:block;
+		background:#313b3d;
+		h2{
+			color:rgb(228, 15, 15);
+			transition:all 200ms ease-in;
+		}
+	}
+	.ion{
+		height:auto;
+	    margin: 0 -12px;
+		width: calc(100% + 24px);
+		position: relative;
+		top: 30px;
+	}
+
+	.swiper-pagination-bullet-active{
+		background-color: #6aa02e !important;
+	} 
+	.swiper-pagination-bullet{
+		background-color: #fffdfd;
+	}
+
+	.swiper-container{
+		height:auto;
+	}
+	#homecontent{
+		
+		position:relative;
+		 background: #ffffff;
+		 margin-top: -15px;	
+	}
+	#homecontent1{
+		position:relative;
+		 background: #ffffff;
+		 margin-top: -15px;
+		 padding-top: 0px;
+	}
+	.course_featured_image{
+		background-size: auto 100%;
+		background-repeat: no-repeat;
+		background-position: center;
+		height: 60px;
+		
+		overflow: hidden;
+		margin: 10px;
+		width: calc(100%+20px);
+		img{
+			width: 100%;
+		}
+	}
+	.namecourse{
+		color: #62AB40;
+		margin-left: 0px;
+		margin-top: 30px;
+		padding: 0.7rem 0.7rem 0 0.7rem;
+	}
+	h5{
+		font-size: 2.8rem !important;
+		font-weight: 700 !important;
+	}
+
+	.namecourse1{
+		color: #62AB40;
+		margin-left: 0px;
+		padding: 0.7rem 0.7rem 0 0.7rem;
+		
+	}
+.buttonAll{
+	text-align: right;
+}
+.button-md-secondary {
+    width: 10%;
+    height: 20px;
+    color: #fff;
+	background-color: #89CB3A;
+	font-size: 1rem;
+}
+.toolbar-ios ion-title{
+	padding: 0px;
+}
+.menutitle .title .title-ios{
+	font-size: 3rem;	
+}
 
 }

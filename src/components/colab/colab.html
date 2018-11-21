@@ -1,0 +1,15 @@
+<ion-card class="customCard">
+    <ion-card-header (click)="toggleAccordion()">
+      <ion-item color="Custom_green">
+        <button ion-button clear small icon-only item-right>
+          <ion-icon color="iconColLab" [name]="icon"></ion-icon>
+        </button>
+        <ion-label class = "coursesize1" color="light">{{data.faq_type_title_TH}}</ion-label>
+      </ion-item>
+    </ion-card-header>
+    <ion-card-content #cc>
+            <ion-label class = "fontSize" color="colorFont">{{data.faq_THtopic}}</ion-label>
+        <div class = "fontSize" color="Font" [innerHTML]="gg" >
+        </div>
+    </ion-card-content>
+</ion-card>

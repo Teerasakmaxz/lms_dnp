@@ -1,17 +1,49 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Contact
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+        <ion-navbar  color="Custom_green">
+                <ion-grid>
+                    <ion-row>
+                        
+                        <ion-col>
+                                <button ion-button menuToggle>
+                                        <ion-icon class="iconmenu" name="ios-menu"></ion-icon>
+                                    </button>
+                        </ion-col>
+                        <ion-col>
+                                <ion-title class="menutitle ios-menutitle">{{config.get_translation('contact_menu_title')}}</ion-title>
+                        </ion-col>
+                        <ion-col>
+                                        <button ion-button class="search">
+                                                        <ion-icon color="light" class="iconsearch" ios="ios-search" md="md-search"></ion-icon>
+                                                    </button>
+                        </ion-col>
+                    </ion-row>
+    
+                </ion-grid>
+              
+               
+        </ion-navbar>
+    </ion-header>
+<ion-content class="bg" >
+        <div #map id="map"></div>    
+        <ion-card class="data">
 
-<ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
-    </ion-item>
-  </ion-list>
+                <ion-card-header color="colorFont" class="textsize">
+                    
+                        กรมอุทยานแห่งชาติ สัตว์ป่า และพันธุ์พืช
+                    
+                </ion-card-header>
+              
+                <ion-card-content color="font" class="textsize1">61 ถนนพหลโยธิน  แขวงลาดยาว</ion-card-content> 
+                <ion-card-content color="font" class="textsize1">ขตจตุจักร กรุงเทพมหานคร 10900</ion-card-content> 
+                <hr>
+                <ion-card-content color="font" class="textsize1">Tel.0 - 2561 - 0777, 0 - 2579 - 6666</ion-card-content>
+                <ion-card-content color="font" class="textsize1">Email : webmaster@dnp.mail.go.th</ion-card-content>
+                                
+                        
+                
+              
+              </ion-card>
+        
+
+  
 </ion-content>

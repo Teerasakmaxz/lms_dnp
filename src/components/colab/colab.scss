@@ -1,0 +1,26 @@
+colab {
+    .item {
+		contain: unset;
+	}
+
+    .card-header{
+        background-color: map-get($colors, primary);
+        color: #fff;
+        padding: 0px;
+    }
+    .card-content {
+        max-height: 30px;
+    }
+    .customCard{
+        margin: 2px;
+    }
+	.fontSize {
+		font-size: 1.6grem;
+    }
+    .coursesize1{
+        font-size: 2rem;
+    }
+    .positionIcon{
+       margin-right:3px ; 
+    }
+}

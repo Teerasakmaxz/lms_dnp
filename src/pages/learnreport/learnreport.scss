@@ -1,0 +1,63 @@
+page-learnreport {
+    .cardlearn {
+        width: 100%;
+        margin: 5px;
+        margin-left: -3px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .item-ios{
+        padding-left: 0px;
+    }
+
+    .item-md{
+        padding-left: 0px;
+    }
+
+    .label.label-ios{
+        font-size: 1.8rem;
+        font-weight: 700 !important;
+    }
+
+    .label.label-md{
+        font-size: 1.8rem;
+        font-weight: 700 !important;
+    }
+
+    .titlecourse{
+        font-size: 2.4rem !important;
+        color: #434343;
+    }
+    .coursesize1 {
+        font-size: 1.4rem;
+    }
+    .coursesize2 {
+        font-size: 1.4rem;
+    }
+    .buttonAll {
+        text-align: right;
+    }
+    .namecourse {
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+    .progressline {
+        width: 100%;
+    }
+    .imgsize {
+        width: 10px;
+        height: 10px;
+        ;
+    }
+    .cardcourse {
+        margin-top: 25px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    .toolbar-ios ion-title{
+		padding: 0px;
+	}
+
+    
+}

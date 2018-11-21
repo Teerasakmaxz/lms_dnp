@@ -1,0 +1,30 @@
+<div class="courseid_block">
+    <ion-grid class="grid">
+        <ion-row>
+            <ion-col col-6>
+                <div class="course_featured_image" [ngStyle]="{ 'background-image':'url('+course.image+')'}">
+                </div>
+            </ion-col>
+            <ion-col col-6>
+                <ion-row class="row">
+                    <ion-card-content class="align-left" text-nowra>
+                        <ion-card-title>
+                            {{course.title}}
+                        </ion-card-title>
+                        <span text-nowrap [innerHTML]="course_detail"></span>
+                    </ion-card-content>
+                </ion-row>
+                <ion-row>
+
+
+                    <ion-col class="buttonAll">
+                            
+                           <hr>
+                            <button ion-button round ion-button color="secondary">ดูทั้งหมด</button>
+                        
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</div>

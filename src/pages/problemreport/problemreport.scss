@@ -1,0 +1,93 @@
+page-problemreport {
+    [col-12]{
+        padding: 0px !important;
+    }
+    .Bmessage {
+        text-align: right;
+        padding: 0;
+    }
+    .boxc {
+        margin-top: 10px;
+        margin: 3px;
+        box-sizing: border-box;
+        border: 0.5px solid #d7d7d7;
+        border-radius: 4px;
+    }
+    .boxx {
+        margin-top: 5px;
+        margin: 0px;
+        margin-right: 8px;
+        box-sizing: border-box;
+        border: 0.5px solid #d7d7d7;
+        border-radius: 4px;
+    }
+    .btnProblem {
+        width: 100%;
+        margin-top: -5px;
+    }
+    .card_r {
+        padding: 12px;
+        margin: 12px 5px 12px 5px;
+        width: 100%;
+        height: 100%;
+        border-radius: 7px;
+        box-shadow: 0 0 6px 3px rgba(0, 0, 0, 0.18);
+        -webkit-box-shadow :0 0 6px 3px rgba(0, 0, 0, 0.18);
+    }
+    .card_n {
+        padding: 12px;
+        margin: 12px 5px 12px 5px;
+        width: 100%;
+        height: 100%;
+        border-radius: 7px;
+        box-shadow: 0 0 6px 3px rgba(0, 0, 0, 0.18);
+		-webkit-box-shadow :0 0 6px 3px rgba(0, 0, 0, 0.18);
+    }
+    .toolbar-ios ion-title {
+        padding: 0px;
+    }
+    .iconn {
+        width: 35px;
+        height: 35px;
+        margin-left: 20px;
+    }
+    .text-input-md{
+        margin-left: 10px;
+    }
+    .text-input-ios{
+        margin-left: 10px;
+    }
+
+    .segment-ios-secondary .segment-button.segment-activated{
+        background-color: #5CAA2F !important;
+        font-size: 2rem;
+    }
+    .segment-ios-secondary .segment-button{
+        border:1px solid #5CAA2F !important;
+        color: #5CAA2F;
+        font-size: 2rem;
+    }
+
+    .segment-md-secondary .segment-button.segment-activated{
+        background-color: #5CAA2F !important;
+        color: #fff !important;
+        font-size: 2rem;
+    }
+    .segment-md-secondary .segment-button{
+        border:1px solid #5CAA2F !important;
+        color: #5CAA2F;
+        border-radius: 0 4px 4px 0 ;
+        font-size: 2rem;
+     
+    }
+
+    .segment-md .segment-button:first-of-type{
+        border-top-left-radius: 4px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 4px;
+        margin-right: 0
+    }
+
+    
+}

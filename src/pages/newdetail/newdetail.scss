@@ -1,0 +1,30 @@
+page-newdetail {
+    .text{
+        text-align: center;
+        font-size: 1.5rem;
+    }
+    .coursesize1 {
+        font-size: 1.0rem;
+        text-indent: 15%;
+        color: #707070;
+        min-width: 200px;
+        margin:10px;
+        
+        
+    }
+    .imgsize{
+		max-width: 100%;
+		width: 100%;
+        height: 35%;
+    }
+    hr {
+        background: #62ab40 !important;
+        height: 2px;
+        width: 40px ;
+        font-size: 1em ;
+       
+      }
+    .menutitle{
+        margin-left: 5%;
+    }
+}

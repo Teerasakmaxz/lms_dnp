@@ -1,0 +1,61 @@
+pdfcomponent {
+    
+    .customSlide{
+        max-height: auto;
+        min-height:auto
+     }
+     .leftprev{
+         position: absolute;
+         left: 0;
+         top: 50%;
+         z-index: 100;
+         font-size: 140%;
+        background-color:rgba(73, 82, 91, 0.50) ;
+        border-radius: 5px;
+        padding: 5px 5px 0px 5px;
+        margin-left: 2%;
+        color: #fff;
+
+         
+     }
+     .rightnext{
+         position: absolute;
+         right: 0;
+         top: 50%;
+         z-index: 100;
+         font-size: 140%;
+        background-color: rgba(73, 82, 91, 0.50);
+        border-radius: 5px;
+        padding: 5px 5px 0px 5px;
+        margin-right: 2%;
+        color: #fff;
+
+     }
+     .img-responsive{
+        border: #49525b 8px solid;
+        border-radius: 5px;
+     }
+     @media (min-height: 800px){
+        .img-responsive{
+            margin-top:60% !important;
+        }
+     }
+
+     @media (min-height: 1000px){
+        .img-responsive{
+            margin-top:24% !important;
+        }
+     }
+
+     @media (orientation:portrait) {
+        .img-responsive{
+            margin-top:40%;
+        }
+      }
+      @media (orientation:landscape) {
+        .img-responsive{
+            height: -webkit-fill-available;
+        }
+      }
+
+}

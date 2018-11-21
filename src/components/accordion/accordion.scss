@@ -1,0 +1,105 @@
+accordion {
+    .item {
+		contain: unset;
+    }
+    .steplearn{
+        font-size: 2rem !important;
+        font-weight: 700 !important;
+        color: #5CAA2F;
+    }
+    .stepdetail{
+        font-size: 1.8rem !important;
+        color: #222;
+       
+    }
+    .btn-warning{
+        background-color: #F0AD4E;
+        -webkit-box-shadow:none;
+        box-shadow: none;
+    }
+    .card-md{
+        -webkit-box-shadow:none;
+        box-shadow: none;
+    }
+    
+    .card-ios{
+        -webkit-box-shadow:none;
+        box-shadow: none;
+    }
+
+    .list> .item-block:last-child{
+        border-top: 0.55px solid rgba(200, 199, 204, 0.43);
+        border-bottom: 0.55px solid rgba(200, 199, 204, 0.43);
+    }
+    .list> .item-block:first-child{
+        border-bottom: 0.55px solid rgba(200, 199, 204, 0.43);
+    }
+
+    .coursenamed{
+        font-size: 2.2rem;
+    }
+
+    .card-header{
+        background-color: map-get($colors, primary);
+        color: #fff;
+        padding: 0px;
+    }
+    .card-content {
+        max-height: 30px;
+    }
+    .customCard{
+        margin: 2px;
+        width: 100%;
+    }
+	.fontSize {
+		font-size: 1.5rem;
+	}
+    .positionIcon{
+       margin-right:3px ; 
+       height: 15px;
+    }
+    .testpre{
+        background-color: #62AB40 !important;
+    }
+    .text1-5{
+        font-size: 1.4em;
+        font-weight: 600 !important;
+    }
+    .pass{
+        background-color: #5CAA2F;
+        color: #fff;
+        padding: 5px;
+        border-radius: 10px;
+        font-size: 1em;
+    }
+    .learning{
+        background-color: #F0AD4E;
+        color: #fff;
+        padding: 5px;
+        border-radius: 10px;
+        font-size: 1em;
+    }
+    .null{
+        background-color: #D9534F;
+        color: #fff;
+        font-size: 1em;
+        padding: 5px;
+        border-radius: 10px;
+    }
+    .scoretest{
+        text-align: right;
+    }
+    .scorebox{
+        background-color: rgba(112, 112, 112, 0.18);
+        padding: 5px;
+        border-radius: 10px;
+        color:   #d9516c;
+        font-size:1em;
+        font-weight: 600 !important;
+        margin-right: 10px;
+
+    }
+    .text-dark{
+        color: #707070 !important;
+    }
+}

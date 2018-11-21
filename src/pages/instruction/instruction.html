@@ -1,0 +1,50 @@
+<!--
+  Generated template for the InstructionPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+                <ion-navbar  color="Custom_green">
+                        <ion-grid>
+                            <ion-row>
+                                
+                                <ion-col>
+                                        <button ion-button menuToggle>
+                                                <ion-icon class="iconmenu" name="ios-menu"></ion-icon>
+                                            </button>
+                                </ion-col>
+                                <ion-col>
+                                        <ion-title class="menutitle ios-menutitle">วิธีการใช้</ion-title>
+                                </ion-col>
+                                <ion-col>
+                                <button ion-button class="search" >
+                                        <ion-icon color="light" class="iconsearch" ios="ios-search" md="md-search"></ion-icon>
+                                 </button>
+                                </ion-col>
+                            </ion-row>
+            
+                        </ion-grid>
+                      
+                       
+                </ion-navbar>
+            </ion-header>
+
+<ion-content padding class="bg">
+        <div class="center">
+                <ion-card class = "cardsize" *ngFor="let usability of dataUsability" (click)="openInstructiondetail(usability)">
+                        <ion-grid>
+                                <ion-row>
+                                        <ion-col col-3>
+                                                <div class="sizeicon">
+                                                 <ion-icon md="ios-help-circle-outline" ></ion-icon>
+                                                </div>
+                                        </ion-col>  
+                                        <ion-col col-9>
+                                                <div class="coursesize1"  color ="font" >{{usability.usa_title}}</div>             
+                                       </ion-col>     
+                                </ion-row>
+                        </ion-grid>
+                </ion-card>
+         </div>    
+</ion-content>

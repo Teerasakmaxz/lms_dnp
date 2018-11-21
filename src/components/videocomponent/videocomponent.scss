@@ -1,0 +1,29 @@
+videocomponent {
+    .customSlide{
+       max-height: 200px;
+       min-height:200px;
+       margin-top:1em;
+    }
+    .customCard{
+        height: 100px;
+        margin-top: 2em !important;
+        display: block;
+    }
+
+    @media (orientation:portrait) {
+        #my-video{
+           
+        }
+      }
+      @media (orientation:landscape) {
+        #my-video{
+            height: -webkit-fill-available;
+        }
+        .customCard{
+            margin-top: 3em !important;
+        }
+        #my-video{
+           margin: 10px;
+        }
+      }
+}

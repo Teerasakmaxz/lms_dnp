@@ -1,0 +1,180 @@
+<ion-content padding>
+    <ion-row float-left>
+        <div id="bt"><img src="assets/icon/left-arrow.svg" (click)="slidePrev()"></div>
+        <ion-label class="Bback" color="font">ย้อนกลับ</ion-label>
+    </ion-row>
+    <ion-grid>
+        <ion-row>
+            <ion-slides #mySlider>
+                <!-- /////////////////slide registerdetails////////// -->
+                <ion-slide>
+                    <ion-grid>
+                        <ion-row class="picregister">
+                            <ion-col center class="registerstep">
+                                <img class="h" src="assets/assets dnp mobile/Group 410.png">
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col>
+                                <ion-label color="font" class="level">
+                                    ขั้นตอนที่ 1
+                                </ion-label>
+                            </ion-col>
+                        </ion-row>
+                        <!-- //////////////////////////////////////////////////// -->
+                        <ion-row class="boxc">
+
+                            <div class="iconn">
+                                <ion-col col-2>
+                                    <ion-label>
+                                        <img src="assets/icon/cardcontact.svg">
+                                    </ion-label>
+                                </ion-col>
+                            </div>
+                            <ion-col col-9>
+                                <ion-input type="number" [(ngModel)]="idcard" placeholder="เลขบัตรประจำตัวประชาชน (required)"
+                                    maxlength="4"></ion-input>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row class="boxc">
+                            <div class="iconn">
+                                <ion-col col-2>
+                                    <ion-label>
+                                        <img src="assets/icon/message.svg">
+                                    </ion-label>
+                                </ion-col>
+                            </div>
+                            <ion-col col-9>
+                                <ion-input type="email" [(ngModel)]="email" placeholder="อีเมล"></ion-input>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row class="boxc">
+                            <ion-col>
+                                <ion-item>
+                                    <ion-label class="selectregis">คำนำหน้า</ion-label>
+                                    <ion-select okText="ตกลง" cancelText="ปิด" [(ngModel)]="typeprefix">
+                                        <ion-option value="1">นาย</ion-option>
+                                        <ion-option value="2">นาง</ion-option>
+                                        <ion-option value="3">นางสาว</ion-option>
+                                    </ion-select>
+                                </ion-item>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row class="boxc">
+                            <ion-input type="text" [(ngModel)]="firstname" placeholder="ชื่อ"></ion-input>
+                        </ion-row>
+                        <ion-row class="boxc">
+                            <ion-input type="text" [(ngModel)]="lastname" placeholder="นามสกุล"></ion-input>
+                        </ion-row>
+                    </ion-grid>
+                </ion-slide>
+                <!-- ////////////////slide registerdetails1////////// -->
+                <ion-slide>
+                    <ion-grid>
+                        <ion-row class="picregister">
+                            <ion-col center class="registerstep">
+                                <img class="h" src="assets/assets dnp mobile/Group 409.png">
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col>
+                                <ion-label color="font" class="level">
+                                    ขั้นตอนที่ 2
+                                </ion-label>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row class="boxc">
+                            <div class="iconn">
+                                <ion-col col-2>
+                                    <ion-label>
+                                        <img src="assets/icon/call-answer.svg">
+                                    </ion-label>
+                                </ion-col>
+                            </div>
+                            <ion-col col-9>
+                                <ion-input type="number" [(ngModel)]="teluser" placeholder="โทรศัพท์เคลื่อนที่"></ion-input>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row class="boxc">
+                            <ion-input type="text" [(ngModel)]="address" placeholder="ที่อยู่"></ion-input>
+                        </ion-row>
+                        <ion-row class="boxc">
+                            <ion-col>
+                                <ion-item>
+                                    <ion-label class="selectregis">จังหวัด</ion-label>
+                                    <ion-select okText="ตกลง" cancelText="ปิด" [(ngModel)]="province">
+                                        <ion-option *ngFor="let item of itemsProvinceService" value={{item.pv_id}}>{{item.pv_name_th}}</ion-option>
+                                    </ion-select>
+                                </ion-item>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row class="boxc">
+                            <ion-input type="text" [(ngModel)]="zipcode" placeholder="รหัสไปรษณีย์"></ion-input>
+                        </ion-row>
+                    </ion-grid>
+                </ion-slide>
+                <!-- ////////////////slide registerdetails2///////// -->
+                <ion-slide>
+                    <ion-grid>
+                        <ion-row class="picregister">
+                            <ion-col center class="registerstep">
+                                <img class="h" src="assets/assets dnp mobile/Group 408.png">
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col>
+                                <ion-label color="font" class="level">
+                                    ขั้นตอนที่ 3
+                                </ion-label>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row class="boxc">
+                            <ion-col>
+                                <ion-input type="text" [(ngModel)]="position" placeholder="ตำแหน่ง"></ion-input>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row class="boxc">
+                            <ion-col>
+                                <ion-input type="text" [(ngModel)]="company" placeholder="ชื่อหน่วยงาน/บริษัท"></ion-input>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row class="boxc">
+                            <ion-col>
+                                <ion-item>
+                                    <ion-label class="selectregis">กลุ่มงาน (อาชีพ)</ion-label>
+                                    <ion-select okText="ตกลง" cancelText="ปิด" [(ngModel)]="groupJob">
+                                        <ion-option value="17">ข้าราชการประจำ</ion-option>
+                                        <ion-option value="18">ข้าราชการการเมือง</ion-option>
+                                        <ion-option value="19">พนักงานรัฐวิสาหกิจ</ion-option>
+                                        <ion-option value="20">พนักงานองค์อิสระ/องค์การมหาชน</ion-option>
+                                        <ion-option value="21">กิจการส่วนตัว/เอกชน</ion-option>
+                                        <ion-option value="22">นักเรียน/นักศึกษา</ion-option>
+                                        <ion-option value="23">อื่น ๆ</ion-option>
+                                    </ion-select>
+                                </ion-item>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                </ion-slide>
+                <ion-slide>
+
+                    <ion-card class="block">
+                        <img [src]="base64Image" />
+                        <!-- <ng-template #elseTemplate>
+                        <img src="assets/icon/adduserPhoto.svg" />
+                        </ng-template> -->
+                    </ion-card>
+
+                    <button ion-button round ion-button id="divbutton1" class="text-bold" (click)="takePhoto()">
+                        <ion-icon name="camera"></ion-icon> &nbsp;&nbsp; เลือกรูปจากแกลลอรี่
+                    </button>
+                </ion-slide>
+            </ion-slides>
+        </ion-row>
+        <ion-row>
+            <!-- <div id="button"> -->
+            <button id="divbutton" color="Bconplete" ion-button full (click)="goToSlide()">ถัดไป</button>
+            <!-- </div> -->
+        </ion-row>
+    </ion-grid>
+</ion-content>

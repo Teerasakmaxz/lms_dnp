@@ -1,0 +1,55 @@
+<ion-content padding>
+
+    <ion-row float-right>
+        <div id="bt"><img src="assets/icon/close.svg" (click)="clickbacktoLogin()"></div>
+    </ion-row>
+    <ion-card class="card">
+        <ion-row class="head">
+
+            <ion-label class="headregis" color="font">ข้อกำหนดการสมัครเรียน</ion-label>
+
+        </ion-row>
+        <ion-card-content>
+            <ion-row>
+                <ion-col>
+                    <p>1.การสมัครสมาชิกของระบบการเรียนการสอนผ่านสื่อออนไลน์ ของระบบการเรียนรู้ e-Learning ไม่ต้องเสียค่าใช้จ่ายใดๆทั้งสิ้น </p>
+                    <p> 2.ผู้สมัคร จะต้องกรอกข้อมูลรายละเอียดต่างๆ ตามจร้งให้ครบถ้สน ทั้งนี้เพื่อประโบชน์เเก่ตัวผู้สมัคร หาก ตรวจพบว่าข้อมูลของ ผู้สมัครเป็นความจริง ทีมงานระบบการเรียนรู้ e-learning การใช้งานของผู้สมัครโดยไม่ต้องเเจ้งให้ทราบล่วงหน้า</p>
+                    <p>3.เมื่อผู้สมัครทำการสมัครสมาชิกเเล้ว ระบบการเรียนรู้ E-learning จะทำการส่ง รหัสยืนยันสมาชิก (Activate Code)ไปยัง e-mail ที่ผู้สมัครได้ระบุไว้ให้ผู้สมัครทำการยืนยันความเป็น สมาชิก(Activate)ภายใน 30 วัน ผู้สมัครจึงจะสามารถใช้ Username
+                        เเละ Password เพื่อเข้าใช้ระบบ (Log in)มิฉะนั้นบัญชีของผู้สมัครจะถูกยกเลิกโดยมิต้องเเจ้งให้ทราบล่วงหน้า
+                    </p>
+                    <p>4.ผู้ใดเเอบอ้างหรือการกระทำการใดๆ อันเป็นการละเมิดสิทธิส่วนบุคคลโดยใช้ข้อมูลของผู้อื่นมาเเอบอ้าง สมัครสมาชิก เพื่อให้ได้ซึ่งสิทธิการเป็นสมาชิก ถือเป็นความผิด ต้องรับโทษตามที่กฏหมายกำหนดไว้</p>
+                    <p>5.ข้อมูลส่วนบุคคลของผู็สมัครที่ได้ลงทะเบียน หรือผ่านการใช้งานของเว็บไซต์ของ E-learning ทั้งหมดนั้น ผู้สมัคร ยอมรับเเละตกลงว่าเป็นสิทธิของระบบการเรียนรู้ E-learning ซึ่งผู้สมัครต้องอนุญาตให้ระบบการเรียนรู้ E-learning ใช้ข้อมูลของผู้สมัครสมาชิกในงานที่เกี่ยวข้องกับระบบการเรียนรู้
+                        E-learning </p>
+                    <p>6.ผู้สมัครจะต้องรักษารหัสผ่าน หรือชื่อเข้าใช้งานในระบบสมาชิกเป็นความลับเเละหากมีผู็อื่นสามารถ เข้าใช้จากทางชื่อของผู้สมัคร ได้ทางระบบการเรียนรู้ E-lerning จะไม่รับผิดชอบใดๆทั้งสิ้น</p>
+                    <p>7.กรณีผู้สมัครเป็นบุคคลสัญชาติไทย ต้องใส่หมายเลขประจำตัวประชาชนเท่านั้น</p>
+                </ion-col>
+            </ion-row>
+        </ion-card-content>
+        <ion-row class="itemm">
+            <ion-col col-2 class="box">
+                <ion-checkbox [(ngModel)]="confirm"></ion-checkbox>
+            </ion-col>
+            <ion-col col-2>
+                <ion-label class="label1" >ฉันยอมรับ </ion-label>
+            </ion-col>
+            <ion-col col-5>
+                <ion-label class="label2" >ข้อกำหนดการใช้ระบบ</ion-label>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+                <div class="Bmessage1">
+                    <button ion-button color="danger" (click)="clickToRegisterdetails()">ยืนยัน</button>
+                </div>
+            </ion-col>
+            <ion-col>
+                <div class="Bmessage2">
+                    <button ion-button color="Bcancel" (click)="clickbackToLoginPags()">ยกเลิก</button>
+                </div>
+            </ion-col>
+
+        </ion-row>
+    </ion-card>
+
+</ion-content>

@@ -1,0 +1,305 @@
+<!-- Generated template for the QuestionComponent component -->
+<ion-content padding class="bg">
+<ion-card color="lol">
+<ion-grid>
+    <ion-row>
+       <ion-col  col-1 class="row"  *ngFor="let item of items; let i = index;" (click)="ShowQuestion(i)">
+         {{item.num}}
+        </ion-col>
+    </ion-row>      
+</ion-grid>
+</ion-card>
+
+<ion-card  color="lol">
+<ion-slides #mySlider>
+    <ion-slide>
+<ion-list  radio-group [(ngModel)]="Q1">
+
+  <ion-header>Section1</ion-header>
+<br>
+  <ion-item >
+    <ion-label>A. ห้ามฆ่าสัตว์</ion-label>
+    <ion-radio value="1.1"></ion-radio>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>B. ห้ามพูดบด</ion-label>
+    <ion-radio value="2.2"></ion-radio>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>C. ห้ามลักทรัพย์</ion-label>
+    <ion-radio value="1.3"></ion-radio>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>D. ห้ามดื่มสุร่า</ion-label>
+    <ion-radio value="1.4"></ion-radio>
+  </ion-item>
+
+ 
+
+</ion-list>
+</ion-slide>
+
+<ion-slide>
+    <ion-list radio-group [(ngModel)]="Q2">
+    
+        <ion-header>Section2</ion-header>
+        <br>
+      <ion-item>
+        <ion-label>A. dsfsdf</ion-label>
+        <ion-radio value="2.1"></ion-radio>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label>B. hgjghj</ion-label>
+        <ion-radio value="2.2"></ion-radio>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label>C. vcbvcb</ion-label>
+        <ion-radio value="2.3"></ion-radio>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label>D. ert</ion-label>
+        <ion-radio value="2.4"></ion-radio>
+      </ion-item>
+    
+     
+    
+    </ion-list>
+    </ion-slide>
+
+    <ion-slide>
+        <ion-list radio-group [(ngModel)]="Q3">
+            <ion-header>Section3</ion-header>
+        <br>
+          <ion-item>
+            <ion-label>A. ccccccc</ion-label>
+            <ion-radio value="3.1"></ion-radio>
+          </ion-item>
+        
+          <ion-item>
+            <ion-label>B. vvvvvvv</ion-label>
+            <ion-radio value="3.2"></ion-radio>
+          </ion-item>
+        
+          <ion-item>
+            <ion-label>C. ssssss</ion-label>
+            <ion-radio value="3.3"></ion-radio>
+          </ion-item>
+        
+          <ion-item>
+            <ion-label>D. yyyyyyyy</ion-label>
+            <ion-radio value="3.4"></ion-radio>
+          </ion-item>
+        
+         
+        
+        </ion-list>
+        </ion-slide>
+
+        <ion-slide>
+            <ion-list radio-group [(ngModel)]="Q4">
+                <ion-header>Section4</ion-header>
+            <br>
+              <ion-item>
+                <ion-label>A. ccccccc</ion-label>
+                <ion-radio value="3.1"></ion-radio>
+              </ion-item>
+            
+              <ion-item>
+                <ion-label>B. vvvvvvv</ion-label>
+                <ion-radio value="3.2"></ion-radio>
+              </ion-item>
+            
+              <ion-item>
+                <ion-label>C. ssssss</ion-label>
+                <ion-radio value="3.3"></ion-radio>
+              </ion-item>
+            
+              <ion-item>
+                <ion-label>D. yyyyyyyy</ion-label>
+                <ion-radio value="3.4"></ion-radio>
+              </ion-item>          
+            </ion-list>
+            </ion-slide>
+
+            <ion-slide>
+                <ion-list radio-group [(ngModel)]="Q5">
+                    <ion-header>Section5</ion-header>
+                <br>
+                  <ion-item>
+                    <ion-label>A. ccccccc</ion-label>
+                    <ion-radio value="3.1"></ion-radio>
+                  </ion-item>
+                
+                  <ion-item>
+                    <ion-label>B. vvvvvvv</ion-label>
+                    <ion-radio value="3.2"></ion-radio>
+                  </ion-item>
+                
+                  <ion-item>
+                    <ion-label>C. ssssss</ion-label>
+                    <ion-radio value="3.3"></ion-radio>
+                  </ion-item>
+                
+                  <ion-item>
+                    <ion-label>D. yyyyyyyy</ion-label>
+                    <ion-radio value="3.4"></ion-radio>
+                  </ion-item>          
+                </ion-list>
+                </ion-slide>
+
+
+                <ion-slide>
+                    <ion-list radio-group [(ngModel)]="Q6">
+                        <ion-header>Section6</ion-header>
+                    <br>
+                      <ion-item>
+                        <ion-label>A. ccccccc</ion-label>
+                        <ion-radio value="3.1"></ion-radio>
+                      </ion-item>
+                    
+                      <ion-item>
+                        <ion-label>B. vvvvvvv</ion-label>
+                        <ion-radio value="3.2"></ion-radio>
+                      </ion-item>
+                    
+                      <ion-item>
+                        <ion-label>C. ssssss</ion-label>
+                        <ion-radio value="3.3"></ion-radio>
+                      </ion-item>
+                    
+                      <ion-item>
+                        <ion-label>D. yyyyyyyy</ion-label>
+                        <ion-radio value="3.4"></ion-radio>
+                      </ion-item>          
+                    </ion-list>
+                    </ion-slide>
+
+                    <ion-slide>
+                        <ion-list radio-group [(ngModel)]="Q7">
+                            <ion-header>Section7</ion-header>
+                        <br>
+                          <ion-item>
+                            <ion-label>A. ccccccc</ion-label>
+                            <ion-radio value="3.1"></ion-radio>
+                          </ion-item>
+                        
+                          <ion-item>
+                            <ion-label>B. vvvvvvv</ion-label>
+                            <ion-radio value="3.2"></ion-radio>
+                          </ion-item>
+                        
+                          <ion-item>
+                            <ion-label>C. ssssss</ion-label>
+                            <ion-radio value="3.3"></ion-radio>
+                          </ion-item>
+                        
+                          <ion-item>
+                            <ion-label>D. yyyyyyyy</ion-label>
+                            <ion-radio value="3.4"></ion-radio>
+                          </ion-item>          
+                        </ion-list>
+                        </ion-slide>
+
+                        <ion-slide>
+                            <ion-list radio-group [(ngModel)]="Q8">
+                                <ion-header>Section8</ion-header>
+                            <br>
+                              <ion-item>
+                                <ion-label>A. ccccccc</ion-label>
+                                <ion-radio value="3.1"></ion-radio>
+                              </ion-item>
+                            
+                              <ion-item>
+                                <ion-label>B. vvvvvvv</ion-label>
+                                <ion-radio value="3.2"></ion-radio>
+                              </ion-item>
+                            
+                              <ion-item>
+                                <ion-label>C. ssssss</ion-label>
+                                <ion-radio value="3.3"></ion-radio>
+                              </ion-item>
+                            
+                              <ion-item>
+                                <ion-label>D. yyyyyyyy</ion-label>
+                                <ion-radio value="3.4"></ion-radio>
+                              </ion-item>          
+                            </ion-list>
+                            </ion-slide>
+
+                            <ion-slide>
+                                <ion-list radio-group [(ngModel)]="Q9">
+                                    <ion-header>Section9</ion-header>
+                                <br>
+                                  <ion-item>
+                                    <ion-label>A. ccccccc</ion-label>
+                                    <ion-radio value="3.1"></ion-radio>
+                                  </ion-item>
+                                
+                                  <ion-item>
+                                    <ion-label>B. vvvvvvv</ion-label>
+                                    <ion-radio value="3.2"></ion-radio>
+                                  </ion-item>
+                                
+                                  <ion-item>
+                                    <ion-label>C. ssssss</ion-label>
+                                    <ion-radio value="3.3"></ion-radio>
+                                  </ion-item>
+                                
+                                  <ion-item>
+                                    <ion-label>D. yyyyyyyy</ion-label>
+                                    <ion-radio value="3.4"></ion-radio>
+                                  </ion-item>          
+                                </ion-list>
+                                </ion-slide>
+
+                                <ion-slide>
+                                    <ion-list radio-group [(ngModel)]="Q10">
+                                        <ion-header>Section10</ion-header>
+                                    <br>
+                                      <ion-item>
+                                        <ion-label>A. ccccccc</ion-label>
+                                        <ion-radio value="3.1"></ion-radio>
+                                      </ion-item>
+                                    
+                                      <ion-item>
+                                        <ion-label>B. vvvvvvv</ion-label>
+                                        <ion-radio value="3.2"></ion-radio>
+                                      </ion-item>
+                                    
+                                      <ion-item>
+                                        <ion-label>C. ssssss</ion-label>
+                                        <ion-radio value="3.3"></ion-radio>
+                                      </ion-item>
+                                    
+                                      <ion-item>
+                                        <ion-label>D. yyyyyyyy</ion-label>
+                                        <ion-radio value="3.4"></ion-radio>
+                                      </ion-item>          
+                                    </ion-list>
+                                    </ion-slide>
+
+</ion-slides>
+</ion-card>
+
+
+<ion-row>
+  <ion-col>  
+  <div>
+<button ion-button round ion-button color="secondary" (click)="prev()">Prev</button>
+</div>
+</ion-col>
+
+<ion-col>
+<div class="buttonAll">
+<button ion-button round ion-button color="secondary" (click)="goToNext()">Next</button>
+</div>
+</ion-col>
+</ion-row>
+
+</ion-content>

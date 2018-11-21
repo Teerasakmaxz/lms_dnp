@@ -1,0 +1,44 @@
+registerdetails2 {
+    .picregister {
+        margin-top: 0px;
+        text-align: center;
+    }
+    .boxc {
+        margin-top: 10px;
+        margin: 5px;
+        box-sizing: border-box;
+        border: 2px solid #d7d7d7;
+        border-radius: 7px;
+    }
+    .level {
+        font-size: 30px;
+        text-align: left;
+        margin-top: -2px;
+    }
+    #bt {
+        margin: 0px;
+        width: 20px;
+        height: 20px;
+    }
+    .Bback {
+        margin: -5px;
+        font-size: 20px;
+        margin-left: 20px;
+    }
+    // .level {
+    //     font-size: 25px;
+    //     margin-left: 20px;
+    // }
+    #button {
+        text-align: center;
+        width: 100%;
+        bottom: 0;
+        position: absolute;
+        margin-left: -20px;
+    }
+    #divbutton {
+        font-size: 25px;
+        // padding: 0 8rem;
+        height: 70px;
+    }
+}
