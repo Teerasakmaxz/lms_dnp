@@ -22,6 +22,7 @@ export class PretestQPage {
   title:any
   type:any
   topic:any
+  txt:any
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private storage:Storage,private testQuestion:TestQuestion,private alertCtrl: AlertController) {
@@ -31,8 +32,11 @@ export class PretestQPage {
 
   ionViewDidLoad() {
     this.storage.get('id').then(val =>{
+      console.log(this.navParams.get('type') );
+      
     if (this.navParams.get('type') == 'lesson') {
       this.testQuestion.pretest(val[0],this.navParams.get('id')).subscribe(data =>{ 
+        console.log("------------------------------------------------");
         console.log(data);
         
 
@@ -41,7 +45,7 @@ export class PretestQPage {
           this.topic= this.navParams.get('topic')
           this.title = data.lesson.title
           this.dataForPre = data     
-          this.dataLesson = data.lesson  
+          this.dataLesson = data.lesson
         } else {
           let alert = this.alertCtrl.create({
             title: 'แจ้งแตือน',
@@ -62,8 +66,6 @@ export class PretestQPage {
       
       this.testQuestion.pretestPostCourse(val[0],this.navParams.get('id')).subscribe(data =>{ 
         console.log(data);
-        
-
         if (data.status) {
           this.title = data.course.course_title
           this.type="หลักสูตร"
@@ -104,8 +106,6 @@ export class PretestQPage {
       }  
       this.navCtrl.push(PosttestPage,dataFor)
     }
-       
-
   }
   back(){
     this.navCtrl.pop()

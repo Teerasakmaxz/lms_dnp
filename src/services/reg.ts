@@ -10,6 +10,7 @@ export class Reg{
         this.baseURL = this.config.baseUrl
     }
 
+
     register(firstname,lastname,identification,email,typeprefix,groupJob,province,position,address,company,zipcode,teluser){
         return this.http.post(`${this.baseURL}User/register`,{
             firstname:firstname,
@@ -22,7 +23,7 @@ export class Reg{
             zipcode:zipcode,
             position:position,
             company:company,
-            title_id:typeprefix
+            title_id:typeprefix,
 
         }).map(this.extractResponse)
     }

@@ -10,8 +10,8 @@ export class Video{
         this.baseURL = this.config.baseUrl
     }
 
-    video(){
-        return this.http.get(`${this.baseURL}video`).map(this.extractResponse)
+    video(){        
+        return this.http.get(`${this.baseURL}Video`).map(this.extractResponse)
     }
 
   private extractResponse(res : Response){

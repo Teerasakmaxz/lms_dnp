@@ -11,7 +11,7 @@ export class UpdateTime{
         this.baseURL = this.config.baseUrl
     }
     saveTimeExam(user_id,lesson_id,time){
-        return this.http.post(`${this.baseURL}Questionapi/SaveTimeExam`,
+        return this.http.post(`${this.baseURL}Http/SaveTimeExamLesson`,
         {
             user_id:user_id,
             lesson_id:lesson_id ,
@@ -20,7 +20,7 @@ export class UpdateTime{
         .map(this.extractResponse)
     }
     saveTimeExamCouser(user_id,course_id,time){
-        return this.http.post(`${this.baseURL}Coursequestionapi/SaveTimeExam`,
+        return this.http.post(`${this.baseURL}Http/SaveTimeExamCourse`,
         {
             user_id:user_id,
             course_id:course_id ,

@@ -22,6 +22,12 @@ export class User{
     province(){
         return this.http.get(`${this.baseUrl}User/province/province`).map(this.extractResponse)  
     }
+    updateImageName(imageName,id){
+        return this.http.post(`${this.baseUrl}User/updateImageName`,{
+            nameImage:imageName,
+            id:id
+        }).map(this.extractResponse)  
+    }
     private extractResponse(res : Response){
         return res.json();
     }

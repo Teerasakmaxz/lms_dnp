@@ -11,7 +11,9 @@ export class Survey{
 
     }
     questionnaire(user_id,id){
-        return this.http.post(`${this.baseURL}questionnaire_courseapi/index`,{
+        console.log(id);
+        
+        return this.http.post(`${this.baseURL}Http/questionnaire_courseapi/index`,{
             id:id,
             user_id:user_id
          
@@ -34,7 +36,7 @@ export class Survey{
         
         console.log(g);
         
-        return this.http.post(`${this.baseURL}?id=${id}&user_id=${user_id}`,{
+        return this.http.post(`${this.baseURL}Http/questionnaire_courseapi/send`,{
             id:id,
             user_id:user_id,
             choice:data

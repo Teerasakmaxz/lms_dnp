@@ -25,8 +25,7 @@
     <ion-row>
       <ion-col> 
         <div *ngFor="let item of dataVideo">
-
-          <video *ngIf="dataVideo.vdo_type == 'file'; else path" id="my-video" webkit-playsinline="true" playsinline="true"  controls="controls" preload="metadata" width="100%">
+          <video *ngIf="item.vdo_type == 'file'; else path" id="my-video" webkit-playsinline="true" playsinline="true"  controls="controls" preload="metadata" width="100%">
               <source src={{item.vdo_path}}
            type="video/mp4"/>
          </video>
@@ -37,7 +36,6 @@
            </video>
         </ng-template>
       </div>
-
       </ion-col>
     </ion-row>
     <ion-row>

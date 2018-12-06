@@ -36,15 +36,9 @@ export class CourseIdPage {
       this.courseId(val[0]);	
       loading.dismiss()		
 		})
-
-
   }
-
   courseId(id : any) {
-    this
-      .courseIdCategoryService
-      .dataForCourseByUser(id)
-      .subscribe(data => {
+    this.courseIdCategoryService.dataForCourseByUser(id).subscribe(data => {
         this.courses = data
         console.log(data)
       })

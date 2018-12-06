@@ -8,7 +8,7 @@
       <ion-label class="coursenamed" color="colorFont">{{lesson.title}}</ion-label>
       <ion-label *ngIf="lesson.learn_pass_status == 'pass'" ><span class="pass">ผ่านบทเรียน</span>  </ion-label>
       <ion-label *ngIf="lesson.learn_pass_status == 'learning'"><span class="learning">กำลังเรียน</span></ion-label>
-      <ion-label *ngIf="lesson.learn_pass_status == null " ><span  class="null">ยังไม่เข้าเรียน</span> </ion-label>
+      <ion-label *ngIf="lesson.learn_pass_status == '' " ><span  class="null">ยังไม่เข้าเรียน</span> </ion-label>
 
     </ion-item>
   </ion-card-header>
@@ -43,7 +43,7 @@
                             <img class="positionIcon" src="assets/icon/edit.svg">
                             <ion-label class="fontSize">ทำแบบทดสอบท้ายบท</ion-label>
                         </button>
-                        <ion-label *ngIf="lesson.postscore != ''" class="fontSize scoretest"><span class="scorebox"> {{lesson.postscore.score_number}}/{{lesson.postscore.score_total}} <span class="text-dark">&nbsp;คะแนน</span> </span></ion-label>
+                        <ion-label *ngIf="lesson.postscore != ''" class="fontSize scoretest"><span class="scorebox">{{lesson.postscore.score_total}}/{{lesson.postscore.score_number}}<span class="text-dark">&nbsp;คะแนน</span> </span></ion-label>
                   </ion-item>
       </ion-list>
   </ion-card-content>

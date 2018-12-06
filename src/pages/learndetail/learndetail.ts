@@ -12,9 +12,9 @@ import { PosttestPage } from "../posttest/posttest";
 import { TestQuestion } from "../../services/testQuestion";
 import { PretestQPage } from "../pretest-q/pretest-q";
 import { LoadFile } from "../../services/loadfile";
-// import { FileTransfer} from '@ionic-native/file-transfer';
-// import { File } from "@ionic-native/file";
-// import { DocumentViewer } from "@ionic-native/document-viewer";
+import { FileTransfer} from '@ionic-native/file-transfer';
+import { File } from "@ionic-native/file";
+import { DocumentViewer } from "@ionic-native/document-viewer";
 import {  Time } from "../../services/time";
 
 
@@ -45,6 +45,7 @@ export class LearndetailPage {
    appDetail:any
    element:any
    detailDate:any
+   score:any
 
 
   
@@ -60,10 +61,11 @@ export class LearndetailPage {
     private alertCtrl: AlertController,
     private testQuestion:TestQuestion,
     private loadFile:LoadFile,
-    // private transfer: FileTransfer,
+    private transfer: FileTransfer,
     public platform: Platform,
-    // private file: File,
-    // private documentViewer:DocumentViewer
+    private file: File,
+    
+    private documentViewer:DocumentViewer
     ) {
       
    this.lessonID(this.navParams.get('id'))
@@ -73,14 +75,19 @@ export class LearndetailPage {
      let start = this.time.getDecodeHTMLTime(data[0].course_date_start)
       this.detailDate =`ระยะเวลาการเรียน ${data[0].course_day_learn} วัน (${start[0]} / ${start[1]} / ${start[2]} - ${end[0]} / ${end[1]} / ${end[2]})`           
       this.course_score = data[0].course_score
+      this.score = data[0].course_score.score_past
       this.id =data[0].course_id
       this.name = data[0].course_title
       this.image = data[0].course_picture
       this.questionnaireId =data[0].questionnaire_id
       this.testPost = data[0].havetest
       this.lessonAllStatus = data[0].statusLearnAllpass
-      this.statusCourseTest = data[0].statusCourseTest
+      console.log("------------------");
       
+      console.log(data[0].statusCourseTest);
+      console.log(data);
+      
+      this.statusCourseTest = data[0].statusCourseTest
       this.appDetail="detail"
       if (data[0].course_detail == "") {
         this.element = "ไม่มีข้อมูล"
@@ -153,12 +160,12 @@ export class LearndetailPage {
           });
           alert.present();
         }
-        
-      
       })
      })
   }
 testPostCourse(id,status){
+  console.log(status);
+  
  if (status) {
   this.storage.get('id').then(val =>{
     this.testQuestion.pretestPostCourse(val[0],this.navParams.get('id')).subscribe(data =>{
@@ -192,56 +199,55 @@ testPostCourse(id,status){
   alert.present();
  }    
 }
-// printCertificate(id,score){
-//   console.log(score);
-  
-//   if (score.length > 0 || this.lessonAllStatus) {
-//     if (score.score_past == 'y' || this.lessonAllStatus) {
-//       let path = null
-//       this.storage.get('id').then(val =>{
-//       if (this.platform.is('ios')) {
-//         path = this.file.documentsDirectory
-//       } else {
-//         path = this.file.dataDirectory
-//       }
-//       const fileTransfer = this.transfer.create();
-//       fileTransfer.download(`http://203.154.117.72/lms_dnp/Course/PrintCertificateapi?user_id=${val[0]}&course_id=${id}`,path + 'Certificate.pdf').then((entry) => {
-//         let url = entry.toURL()
-//         this.documentViewer.viewDocument(url,'application/pdf',{})
-//         console.log('download complete: ' + entry.toURL());
-//       }, (error) => {
-//         console.log(error);
-//      });  
-//     })
-//     }else{
-//       let alert = this.alertCtrl.create({
-//         title: 'แจ้งแตือน',
-//         message: 'กรุณาทำข้อสอบหลักสูตรให้ผ่านก่อน',
-//         buttons: [
-//           {
-//             text: 'OK',
-//             handler: () => {
-//             }
-//           }
-//         ]
-//       });
-//       alert.present();
-//     }
-//   } else {
-//       let alert = this.alertCtrl.create({
-//     title: 'แจ้งแตือน',
-//     message: 'กรุณาทำข้อสอบหลักสูตร',
-//     buttons: [
-//       {
-//         text: 'OK',
-//         handler: () => {
-//         }
-//       }
-//     ]
-//   });
-//   alert.present();
-//   }
 
-//   }
+printCertificate(id,score){    
+  if (score.score_past == "y" && this.lessonAllStatus) {
+    if (score.score_past == 'y' || this.lessonAllStatus) {
+      let path = null
+      this.storage.get('id').then(val =>{
+      if (this.platform.is('ios')) {
+        path = this.file.documentsDirectory
+      } else {
+        path = this.file.dataDirectory
+      }
+      const fileTransfer = this.transfer.create();
+      fileTransfer.download(`http://203.154.117.72/lms_dnp/Course/PrintCertificateapi?user_id=${val[0]}&course_id=${id}`,path + 'Certificate.pdf').then((entry) => {
+        let url = entry.toURL()
+        this.documentViewer.viewDocument(url,'application/pdf',{})
+        console.log('download complete: ' + entry.toURL());
+      }, (error) => {
+        console.log(error);
+     });  
+    })
+    }else{
+      let alert = this.alertCtrl.create({
+        title: 'แจ้งแตือน',
+        message: 'กรุณาทำข้อสอบหลักสูตรให้ผ่านก่อน',
+        buttons: [
+          {
+            text: 'OK',
+            handler: () => {
+            }
+          }
+        ]
+      });
+      alert.present();
+    }
+  } else {
+      let alert = this.alertCtrl.create({
+    title: 'แจ้งแตือน',
+    message: 'กรุณาทำข้อสอบหลักสูตร',
+    buttons: [
+      {
+        text: 'OK',
+        handler: () => {
+        }
+      }
+    ]
+  });
+  alert.present();
+  }
+
+  }
   
 }

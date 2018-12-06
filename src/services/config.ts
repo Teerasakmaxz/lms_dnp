@@ -52,8 +52,8 @@ export class ConfigService {
 		this.settings = {
 			'version': 1,
 			
-			'url': 'http://localhost:13000/',
-			// 'url':'http://203.154.117.72:13000/',
+			// 'url': 'http://192.168.2.9:13000/',
+			'url':'http://203.154.117.72:13000/',
 			'client_id': '',
 			'client_secret': '', //Fetched from API call
 			'state': '', // FETCHED from Site

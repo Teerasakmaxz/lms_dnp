@@ -1,5 +1,4 @@
-
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { NavController, NavParams, Slides,ViewController,AlertController} from 'ionic-angular';
 import {ConfigService} from '../../services/config'
 import { LearndetailPage } from '../learndetail/learndetail';
@@ -9,7 +8,6 @@ import { CustomCode } from "../../services/customCode";
 import { UpdateTime } from "../../services/updateTime";
 import { ScorePage } from "../score/score";
 
-
 /**
  * Generated class for the PretestPage page.
  *
@@ -17,12 +15,11 @@ import { ScorePage } from "../score/score";
  * Ionic pages and navigation.
  */
 
-
 @Component({
   selector: 'page-pretest',
   templateUrl: 'pretest.html',
 })
-export class PretestPage {
+export class PretestPage implements OnInit {
   @ViewChild('mySlider') slider: Slides;
   currentQuizTime:any
   ansTextarea:any
@@ -62,40 +59,39 @@ export class PretestPage {
     public config:ConfigService,private storage:Storage,
   private testQuestion:TestQuestion,private viewController :ViewController,private customCode:CustomCode,
   private updateTime:UpdateTime,private alertCtrl: AlertController) {
-
   }
   ngOnInit(){
     this.slider.lockSwipeToPrev(true)
     this.slider.lockSwipeToNext(true)
     this.storage.get('id').then(val =>{
-      this.testQuestion.test(val[0],this.navParams.get('idLesson')).subscribe(data =>{
+      this.testQuestion.test(val[0],this.navParams.get('idLesson')).subscribe(data =>{  
+        
         if (data.status) {
           this.choiceDropdown = [];
           this.choiceDropdownIndex = [];
-          this.choiceRadio =[]
-       this.question = this.customCode.getDecodeHTMLEntities(data.question.ques_title)        
+          this.choiceRadio =[]          
+       this.question = this.customCode.getDecodeHTMLEntities(data.question.ques_title)               
        if (data.choice.length != 0) {
          this.choice = data.choice
          this.lastQustion = data.last_ques
          this.choice.forEach((element,index) => {
-           this.choiceRadio.push(this.customCode.getDecodeHTMLEntities(data.choice[index].choice_detail))
-
+           this.choiceRadio.push(this.customCode.getDecodeHTMLEntities(data.choice[index].choice_detail))           
          });
           //dropdown
         this.questionDropdown = this.customCode.getDecodeHTMLEntities(data.choice[0].choice_detail)
        }else{
          console.log("++++++++++++++++++++++++++++++++");
-       }                 
+       }                               
        this.choiceType = data.question.ques_type
        this.temp = data.temp_all
        this.currentQuiz = data.currentQuiz
-       
-         this.currentQuizTime = data.currentQuiz.time_up
+         this.currentQuizTime = data.temp_all[0].time_up         
          if (this.currentQuiz.number != 0) {
           this.indexSliders =  this.currentQuiz.number
          }
-         this.time_test_start(this.currentQuizTime)
-        let dataArray = JSON.parse(data.currentQuiz.ans_id)        
+         
+         this.time_test_start(this.currentQuizTime)         
+        let dataArray = data.currentQuiz.ans_id      
        if (dataArray != null || dataArray!=undefined || dataArray != "") {
          if (dataArray != null) {
            dataArray.forEach(element => {
@@ -143,7 +139,6 @@ export class PretestPage {
   }
   goback(){
     this.navCtrl.pop()
-    
   }
   goToNext(){   
     this.indexSliders++
@@ -168,7 +163,6 @@ export class PretestPage {
            this.question = this.customCode.getDecodeHTMLEntities(data.question.ques_title) 
            
            if (data.choice.length != 0) {
-
              this.choice = data.choice
              this.choice.forEach((element,index) => {
                this.choiceRadio.push(this.customCode.getDecodeHTMLEntities(data.choice[index].choice_detail))
@@ -179,7 +173,7 @@ export class PretestPage {
                this.choiceType = data.question.ques_type
               this.temp = data.temp_all              
               this.currentQuiz = data.currentQuiz
-              let dataArray = JSON.parse(data.currentQuiz.ans_id)
+              let dataArray = data.currentQuiz.ans_id
               this.ansRadio = undefined
               if (dataArray != null) {
                 dataArray.forEach(element => {
@@ -198,7 +192,7 @@ export class PretestPage {
         }
         if (this.choiceType == 2) {
           if (this.ansRadio != undefined || this.ansRadio != null) {
-            this.testQuestion.updateTemp(val[0],this.navParams.get('idLesson'),this.choice[0].ques_id,'next',this.currentQuiz.number,"",this.ansRadio,this.choiceType).subscribe(data =>{              
+            this.testQuestion.updateTemp(val[0],this.navParams.get('idLesson'),this.choice[0].ques_id,'next',this.currentQuiz.number,"",this.ansRadio,this.choiceType).subscribe(data =>{                            
               this.slider.lockSwipeToPrev(false)
               this.slider.lockSwipeToNext(false) 
               this.slider.slideTo(this.indexSliders,500);
@@ -222,7 +216,7 @@ export class PretestPage {
               this.temp = data.temp_all
               this.currentQuiz = data.currentQuiz
               this.ansRadio = undefined
-              let dataArray = JSON.parse(data.currentQuiz.ans_id)
+              let dataArray = data.currentQuiz.ans_id
               if (dataArray != null) {
                 dataArray.forEach(element => {
                     this.ansRadio = element                
@@ -264,7 +258,7 @@ export class PretestPage {
             this.temp = data.temp_all
             this.currentQuiz = data.currentQuiz
             this.ansRadio = undefined
-            let dataArray = JSON.parse(data.currentQuiz.ans_id)
+            let dataArray = data.currentQuiz.ans_id
             if (dataArray != null) {
               dataArray.forEach(element => {
                   this.ansRadio = element                
@@ -310,7 +304,7 @@ export class PretestPage {
             this.temp = data.temp_all
             this.currentQuiz = data.currentQuiz
             this.ansRadio = undefined
-            let dataArray = JSON.parse(data.currentQuiz.ans_id)
+            let dataArray = data.currentQuiz.ans_id
             if (dataArray != null) {
               dataArray.forEach(element => {
                   this.ansRadio = element                
@@ -353,7 +347,7 @@ export class PretestPage {
         this.choiceType = data.question.ques_type
         this.temp = data.temp_all
         this.currentQuiz = data.currentQuiz
-        let dataArray = JSON.parse(data.currentQuiz.ans_id)
+        let dataArray = data.currentQuiz.ans_id
         this.ansRadio = undefined
         if (dataArray != null) {
           dataArray.forEach(element => {
@@ -378,13 +372,11 @@ export class PretestPage {
 
         if (this.indexSliders > 0 ) {
           this.indexSliders--
-  
           this.slider.lockSwipeToPrev(false)
           this.slider.lockSwipeToNext(false) 
           this.slider.slideTo(this.indexSliders,500);
           this.slider.lockSwipeToPrev(true)
           this.slider.lockSwipeToNext(true)
-  
       }
         this.choiceDropdown = [];
         this.choiceDropdownIndex = [];
@@ -400,7 +392,7 @@ export class PretestPage {
      }  
         this.choiceType = data.question.ques_type
         this.temp = data.temp_all    
-        let dataArray = JSON.parse(data.currentQuiz.ans_id)
+        let dataArray = data.currentQuiz.ans_id
         this.currentQuiz = data.currentQuiz
         this.ansRadio = undefined
         if (dataArray != null) {
@@ -417,7 +409,6 @@ export class PretestPage {
         }  
       })
     })    
-
   }
   sendAns(event){
     this.storage.get('id').then(val =>{
@@ -458,15 +449,11 @@ export class PretestPage {
                 this.testQuestion.updateTemp(this.userID,this.navParams.get('idLesson'),this.currentQuiz.ques_id,event,this.currentQuiz.number,1,"null",this.choiceType).subscribe(data =>{
                 this.dataForScore ={value:data} 
                 this.navCtrl.push(ScorePage,this.dataForScore)
-                
-               
                 }) 
             }else{
                 this.testQuestion.updateTemp(this.userID,this.navParams.get('idLesson'),this.currentQuiz.ques_id,event,this.currentQuiz.number,1,this.ansTextarea,this.choiceType).subscribe(data =>{
                 this.dataForScore ={value:data} 
-                
                 this.navCtrl.push(ScorePage,this.dataForScore)
-               
                 })
               }
             }
@@ -479,8 +466,6 @@ export class PretestPage {
                 })
               }else{
                 this.testQuestion.updateTemp(this.userID,this.navParams.get('idLesson'),this.choice[0].ques_id,event,this.currentQuiz.number,1,this.ansCheckBox,this.choiceType).subscribe(data =>{
-                  
-                  
                 this.dataForScore ={value:data}   
                 this.navCtrl.push(ScorePage,this.dataForScore)
 
@@ -518,8 +503,11 @@ export class PretestPage {
         this.temp = data.temp_all
         this.currentQuiz = data.currentQuiz
         this.ansRadio = undefined
-        let dataArray = JSON.parse(data.currentQuiz.ans_id)
+        console.log(data);
+        
+        let dataArray = data.currentQuiz.ans_id        
           if (dataArray != null) {
+            
             dataArray.forEach(element => {
                 this.ansRadio = element                
               });
@@ -536,7 +524,6 @@ export class PretestPage {
     })
   }
   setStatus(status,number,currentNumber){ 
-    
         if(number == currentNumber){
            return "numbertest3"
         }else{
@@ -568,7 +555,7 @@ export class PretestPage {
               })
             })      
           } 
-      if (count < 0) {
+      if (count == 0) {
         let alert = time.alertCtrl.create({
           title: 'แจ้งแตือน',
           message: 'หมดเวลาทำข้อสอบ',
@@ -577,7 +564,7 @@ export class PretestPage {
               text: 'OK',
               handler: () => {
                 time.sendAns('timeup')
-                // time.navCtrl.push(ScorePage,)
+                time.navCtrl.push(ScorePage,)
                 // console.log('Cancel clicked');
               }
             }
@@ -586,22 +573,13 @@ export class PretestPage {
         alert.present();
         clearInterval(time.interval);
         //save
-        
 			}
 		}, 1000);
   }
   ionViewWillLeave(){
-    // this.updateTime.saveTimeExam(this.userID,this.navParams.get('idLesson'),count).subscribe(data =>{
-    //   console.log(data);
-    //     })
     clearInterval(this.interval);
   }
   ionViewDidLeave(){
-    // this.updateTime.saveTimeExam(this.userID,this.navParams.get('idLesson'),count).subscribe(data =>{
-    //   console.log(data);
-    //     })
     clearInterval(this.interval);
   }
-
-
 }

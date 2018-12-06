@@ -15,13 +15,12 @@ import { Video } from "../../services/video";
 })
 export class VideointroducePage {
   dataVideo :any
-
   constructor(public navCtrl: NavController, public navParams: NavParams,private video:Video) {
   }
 
   ionViewDidLoad() {
 
-    this.video.video().subscribe(dataForVideo =>{
+    this.video.video().subscribe(dataForVideo =>{      
     this.dataVideo = dataForVideo
     })
 

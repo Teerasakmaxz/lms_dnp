@@ -13,27 +13,21 @@ export class TestQuestion{
 
     }
     test(user_id,lesson_id){
-        return this.http.post(`${this.baseURL}Questionapi/index`,{
+        console.log(user_id);
+        console.log(lesson_id);
+        return this.http.post(`${this.baseURL}Http/Questionapi`,{            
             user_id  :user_id,
             lesson_id:lesson_id
         }).map(this.extractResponse)
     }
     nextTemp(user_id,lesson_id,actionEvnt){
-        return this.http.post(`${this.baseURL}Questionapi/index`,{
+        return this.http.post(`${this.baseURL}Http/Questionapi`,{
             user_id  :user_id,
             lesson_id:lesson_id,
             actionEvnt:actionEvnt
         }).map(this.extractResponse)
     }
     updateTemp(user_id,lesson_id,idQ,actionEvnt,idx_now,last_quest,idChoice,typeChoice){  
-        console.log(user_id);
-        console.log(lesson_id);
-        console.log(idQ);
-        console.log(actionEvnt);
-        console.log(idx_now);
-        console.log(last_quest);
-        console.log(idChoice);
-        console.log(typeChoice);
         let ChoiceTemp = {};
         if(typeChoice == 4 || typeChoice == 1 ){
             ChoiceTemp[idQ] = idChoice;
@@ -42,7 +36,7 @@ export class TestQuestion{
         }
         let type ={};
         type[idQ] = [typeChoice]
-        return this.http.post(`${this.baseURL}Questionapi/index`,{
+        return this.http.post(`${this.baseURL}Http/Questionapi`,{
             user_id  :user_id,
             lesson_id:lesson_id,
             actionEvnt:actionEvnt,
@@ -53,21 +47,20 @@ export class TestQuestion{
         }).map(this.extractResponse)
     }
     pretest(user_id,lesson_id){
-            return this.http.post(`${this.baseURL}Questionapi/PreExams`,{
+            return this.http.post(`${this.baseURL}Http/Questionapi/PreExams`,{
             user_id  :user_id,
             lesson_id:lesson_id,
         }).map(this.extractResponse)
     }
-
     testPostCourse(user_id,course_id){
-        return this.http.post(`${this.baseURL}Coursequestionapi/index`,{
+        return this.http.post(`${this.baseURL}Http/Coursequestionapi`,{
             user_id  :user_id,
             course_id:course_id
         }).map(this.extractResponse)
     }
 
     nextTempPostCourse(user_id,course_id,actionEvnt){
-        return this.http.post(`${this.baseURL}Coursequestionapi/index`,{
+        return this.http.post(`${this.baseURL}Http/Coursequestionapi`,{
             user_id  :user_id,
             course_id:course_id,
             actionEvnt:actionEvnt
@@ -83,7 +76,7 @@ export class TestQuestion{
         }
         let type ={};
         type[idQ] = [typeChoice]
-        return this.http.post(`${this.baseURL}Coursequestionapi/index`,{
+        return this.http.post(`${this.baseURL}Http/Coursequestionapi`,{
             user_id  :user_id,
             course_id:course_id,
             actionEvnt:actionEvnt,
@@ -94,7 +87,7 @@ export class TestQuestion{
         }).map(this.extractResponse)
     }
     pretestPostCourse(user_id,course_id){
-        return this.http.post(`${this.baseURL}Coursequestionapi/PreExams`,{
+        return this.http.post(`${this.baseURL}Http/Coursequestionapi/PreExams`,{
             user_id  :user_id,
             course_id:course_id,
         }).map(this.extractResponse)

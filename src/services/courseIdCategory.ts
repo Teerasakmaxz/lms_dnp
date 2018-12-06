@@ -17,27 +17,22 @@ export class CourseIdCategory {
     }
 
     dataForCourse(id : any) {
-
         return this
             .http
             .get(`${this.baseUrl}CourseOnline/cate_id/${id}`)
             .map(this.extractResponse)
-
     }
-
     dataForCourseByUser(id : any) {
         return this
             .http
             .get(`${this.baseUrl}CourseOnline/getCourseID/${id}`)
             .map(this.extractResponse)
-
     }
     courseOnline(user_id,id){
         return this.http.get(`${this.baseUrl}CourseOnline/getid/${id}/${user_id}`)
         .map(this.extractResponse)
     }
-
-    private extractResponse(res : Response) {
+     private extractResponse(res : Response) {
         return res.json();
     }
 

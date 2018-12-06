@@ -16,7 +16,10 @@
 
             <ion-col col-6 class="bg">
                 <div class="imgReward">
-                    <img src="assets/images/grey-reward.png">
+                    <img *ngIf="score == 'y'; else no" src="assets/images/reward.svg" width="65%">
+                    <ng-template #no>
+                        <img src="assets/images/grayreward.svg" width="65%">
+                </ng-template>  
                 </div>
                 <div class="Bprint">
                     <button ion-button color="purplee" class="buttonBprint" (click)="printCertificate(id,course_score)">พิมพ์ใบประกาศ</button>

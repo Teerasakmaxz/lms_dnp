@@ -8,11 +8,6 @@ import { LearndetailPage } from "../learndetail/learndetail";
 import { Time } from "../../services/time";
 import { Storage } from "@ionic/storage";
 import 'rxjs/add/operator/map';
-
-
-
-
-
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
@@ -51,7 +46,6 @@ export class HomePage implements OnInit{
 			loading.present();
 			this.courseService.getAllCourseCategory().subscribe(featured =>{
 				console.log(featured);
-				
 					this.categories = featured;
 					loading.dismiss()
 			});

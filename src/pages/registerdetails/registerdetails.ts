@@ -1,5 +1,6 @@
 import { Injectable, Component, ViewChild } from '@angular/core';
 import {  NavController, NavParams, Slides, AlertController } from 'ionic-angular';
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { ConfigService } from '../../services/config';
 import { RegisterPage } from '../register/register';
 import { RegisterdetailsComponent } from "../../components/registerdetails/registerdetails";
@@ -35,12 +36,14 @@ export class RegisterdetailsPage {
   company:any
   zipcode:any
   status: boolean = false;
+  text:any
 
 
   public	photos :any
  public base64Image:string
-  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController,private provinceService:User,private reg:Reg,
-    private camera: Camera
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
+    private alertCtrl: AlertController,private provinceService:User,
+    private reg:Reg,private camera: Camera,private transfer: FileTransfer,
     ) {
       this.provinceService.province().subscribe(data=>{
       this.itemsProvinceService =data  
@@ -48,19 +51,18 @@ export class RegisterdetailsPage {
         
       })
   }
-
   ionViewDidLoad() {
     this.base64Image = 'assets/icon/adduserPhoto.svg'
     this.slider.lockSwipeToNext(true)
     this.slider.lockSwipeToPrev(true)
-
+    this.text = "ถัดไป"
   }
   goToSlide() {
     if (this.numeric == 0) {
+      this.text = "ถัดไป"
       if (this.idcard != undefined && this.email != undefined && this.idcard != "" && 
       this.email != "" && this.typeprefix != "" && this.typeprefix != undefined && this.firstname != "" && this.firstname != undefined &&
       this.lastname != "" && this.lastname != undefined) {
-        
         if (this.checkID(this.idcard)) {
             this.numeric++
         } else {
@@ -86,6 +88,8 @@ export class RegisterdetailsPage {
       // slide 2
     }
     else if (this.numeric == 1) {
+      this.text = "ถัดไป"
+
       if (this.teluser != undefined  && this.teluser != "" && this.address != "" 
       && this.address != undefined && this.province != "" && this.province != undefined
       && this.zipcode != "" && this.zipcode != undefined)
@@ -114,10 +118,10 @@ export class RegisterdetailsPage {
         });
       alert.present();
       }
-
       //เช็คช่องกรอก
       // slide 3     
     } else if (this.numeric == 2) {
+      this.text = "สมัครสมาชิก"
       if (this.position != undefined && this.position != "" && this.company != undefined 
       && this.company != "" && this.groupJob != "" && this.groupJob != undefined) 
       { 
@@ -132,13 +136,15 @@ export class RegisterdetailsPage {
       alert.present();
       }
       //เช็คช่องกรอก
-    }else if (this.numeric == 3) {
-      if (this.base64Image != null || this.base64Image != undefined || this.base64Image != '') {
-        let postImage = new FormData
-        postImage.append('file',this.base64Image)
+    }else if (this.numeric == 3) {      
+      this.text = "สมัครสมาชิก"
+      if (this.base64Image != null || this.base64Image != undefined || this.base64Image != '') {        
         this.reg.register(this.firstname,this.lastname,this.idcard,this.email,this.typeprefix,
           this.groupJob,this.province,this.position,this.address,this.company,
           this.zipcode,this.teluser).subscribe(data =>{
+            this.uploadFile()
+            this.provinceService.updateImageName(data[0].name,data[0].id).subscribe(val =>{
+            })
             let alert = this
             .alertCtrl
             .create({
@@ -214,15 +220,26 @@ takePhoto(){
      // imageData is either a base64 encoded string or a file URI
      // If it's base64 (DATA_URL):
     this.base64Image = 'data:image/jpeg;base64,' + imageData;
+    
     }, (err) => {
      // Handle error
     });
-  console.log("ถ่ายรูป");
+  // console.log("ถ่ายรูป");
   
 }
-deletePhoto(index){
-  console.log("ลบรูป");
-
-}
+uploadFile() {
+    const fileTransfer: FileTransferObject = this.transfer.create();
+    let options: FileUploadOptions = {
+      fileKey: 'image',
+      chunkedMode: false,
+      mimeType: "multipart/from-data",
+    }
+    fileTransfer.upload(this.base64Image, 'http://203.154.117.72:13000/User/profile', options)
+      .then((data) => {
+     console.log(data)  
+    }, (err) => {
+    console.log(err)
+    });
+  }
 
 }

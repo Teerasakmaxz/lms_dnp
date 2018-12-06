@@ -19,16 +19,16 @@ export class PdfcomponentComponent {
 
   }
   ngOnInit(){
+    console.log(this.pdf.image.length - 1);
+    
     this.sliderg = this.pdf.image
     this.item = this.pdf.last
-    console.log(this.pdf.last);
-    
-    // this.slider.slideTo(this.item,1)
   }
   ionViewDidLoad() {
     this.slider.slideTo(this.pdf.last,1)
   }
   next(){
+    if (this.pdf.last != this.pdf.image.length - 1) {
   this.slider.slideNext(500)
   this.storage.get('id').then(val =>{
     if (this.pdf.last != 's') {
@@ -37,7 +37,12 @@ export class PdfcomponentComponent {
       })
     }
   })
+} else {
+      console.log("11111111111");
+      
+}
   }
+  
   prev(){
     this.slider.slidePrev(500)
   }

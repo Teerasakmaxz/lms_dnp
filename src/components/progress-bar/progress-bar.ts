@@ -35,8 +35,6 @@ export class ProgressBarComponent implements OnInit {
         percent = 0;
     }
     var deg = Math.round(360 * (percent / 100));
-
-
     if(percent > 50){
       this.renderer.setElementStyle(this.pie.nativeElement,'clip', 'rect(auto, auto, auto, auto)');
       this.renderer.setElementStyle(this.rightside.nativeElement,'transform', 'rotate(180deg)');

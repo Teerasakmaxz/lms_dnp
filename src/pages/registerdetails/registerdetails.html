@@ -158,12 +158,9 @@
                 </ion-slide>
                 <ion-slide>
 
-                    <ion-card class="block">
-                        <img [src]="base64Image" />
-                        <!-- <ng-template #elseTemplate>
-                        <img src="assets/icon/adduserPhoto.svg" />
-                        </ng-template> -->
-                    </ion-card>
+                    <!-- <ion-card class="block"> -->
+                        <img class="block" [src]="base64Image"/>
+                    <!-- </ion-card> -->
 
                     <button ion-button round ion-button id="divbutton1" class="text-bold" (click)="takePhoto()">
                         <ion-icon name="camera"></ion-icon> &nbsp;&nbsp; เลือกรูปจากแกลลอรี่
@@ -173,7 +170,7 @@
         </ion-row>
         <ion-row>
             <!-- <div id="button"> -->
-            <button id="divbutton" color="Bconplete" ion-button full (click)="goToSlide()">ถัดไป</button>
+            <button id="divbutton" color="Bconplete" ion-button full (click)="goToSlide()">{{text}}</button>
             <!-- </div> -->
         </ion-row>
     </ion-grid>

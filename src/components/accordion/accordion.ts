@@ -36,7 +36,6 @@ export class AccordionComponent implements OnInit {
   show:boolean
   status:boolean =false
 
-
   constructor(public renderer: Renderer,public navCtrl: NavController,
      public navParams: NavParams,private alertCtrl: AlertController
      ,private storage:Storage,
@@ -50,7 +49,7 @@ export class AccordionComponent implements OnInit {
   }
 
   ngOnInit() {
-console.log(this.lesson.lesson_status);
+console.log(this.lesson);
 
     if (this.lesson.pre.pre > 0) {
       this.number1 = 1
@@ -115,6 +114,8 @@ console.log(this.lesson.lesson_status);
     if (event == 'pre') {
       //ถ้ามีเรียง
       //****************************** */
+      console.log(data.currentquiz);
+
       if (this.lesson.prescore == "" && this.lesson.postscore == ""){
         if (data.currentquiz) {
           this.navCtrl.push(PretestPage,daataForLesson)
@@ -144,6 +145,9 @@ console.log(this.lesson.lesson_status);
         alert.present();
       }
     }else if(event == 'post'){
+      console.log("::::::::::::::::::::::::::::::::");
+      console.log(this.lesson);
+      
       if(this.lesson.prescore != "" && this.lesson.lesson_status == 'pass'){
         if (data.currentquiz) {
           this.navCtrl.push(PretestPage,daataForLesson)

@@ -24,23 +24,18 @@ export class ScorePage {
   num:any =0
   per:any =0
 
-
-
   constructor(public navCtrl: NavController, public navParams: NavParams,public renderer : Renderer) {
     this.data = this.navParams.get('value');
-    
-    
   }
 
   ionViewDidLoad() {
     this.full_score = this.data.modelScore.score_total
     this.score_past = this.data.modelScore.score_past
     this.score_number = this.data.modelScore.score_number
+    this.num = this.score_number
     this.per = (this.score_number/this.full_score)*100
     this.per = parseInt(this.per) 
-   
-  //  console.log(this.per);
-      this.updateDonutChart(this.score_number,true)
+    this.updateDonutChart(this.per,true)
   }
 
   updateDonutChart(percent, donut) {
@@ -69,7 +64,6 @@ export class ScorePage {
       this.renderer.setElementStyle(this.leftside.nativeElement,'border-width', '0.5em');
       this.renderer.setElementStyle(this.shadow.nativeElement,'border-width', '0.5em');
     }
-    this.num = percent
     this.renderer.setElementStyle(this.leftside.nativeElement,'transform', 'rotate(' + deg + 'deg)');
 
 }
